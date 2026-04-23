@@ -1,0 +1,38 @@
+---
+import type { Locale } from "../i18n/utils";
+import { t } from "../i18n/utils";
+
+export interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+const stats = [
+  { key: "stats.boats", value: 500, suffix: "+" },
+  { key: "stats.years", value: 28, suffix: "" },
+  { key: "stats.technicians", value: 12, suffix: "" },
+  { key: "stats.partners", value: 7, suffix: "" },
+] as const;
+---
+
+<section class="bg-deep text-foam">
+  <div class="mx-auto grid max-w-[1200px] grid-cols-2 gap-8 px-6 py-16 md:grid-cols-4">
+    {
+      stats.map((stat) => (
+        <div class="text-center" data-reveal>
+          <div
+            class="font-display text-5xl font-semibold text-teal"
+            data-stat-counter
+            data-stat-target={stat.value}
+            data-stat-suffix={stat.suffix}
+          >
+            0{stat.suffix}
+          </div>
+          <p class="mt-2 text-sm uppercase tracking-wide text-foam/70">
+            {t(locale, stat.key)}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>
