@@ -1,0 +1,62 @@
+---
+import type { Locale } from "../i18n/utils";
+import { t, localizedPath } from "../i18n/utils";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+
+export interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+const nav = [
+  { key: "nav.home", href: localizedPath(locale, "/") },
+  { key: "nav.about", href: localizedPath(locale, "/about") },
+  { key: "nav.services", href: localizedPath(locale, "/services") },
+  { key: "nav.contact", href: localizedPath(locale, "/contact") },
+] as const;
+---
+
+<header class="sticky top-0 z-40 border-b border-navy/10 bg-foam/90 backdrop-blur">
+  <div class="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-6 py-4">
+    <a href={localizedPath(locale, "/")} class="flex items-center gap-2" aria-label="Triton Marine home">
+      <svg viewBox="0 0 32 32" class="h-8 w-8" aria-hidden="true">
+        <rect width="32" height="32" rx="6" fill="#0B1E2D" />
+        <path d="M16 6 L16 26 M10 10 L16 6 L22 10 M10 14 L22 14 M12 22 L20 22" stroke="#1E8C8C" stroke-width="2" stroke-linecap="round" fill="none" />
+      </svg>
+      <span class="font-display text-xl font-semibold tracking-tight">Triton Marine</span>
+    </a>
+
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm font-medium text-navy/80 transition hover:text-teal"
+          >
+            {t(locale, item.key)}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <LanguageSwitcher locale={locale} />
+      <a
+        href={localizedPath(locale, "/contact")}
+        class="hidden rounded-lg bg-teal px-4 py-2 text-sm font-semibold text-foam transition hover:bg-navy md:inline-flex"
+      >
+        {t(locale, "nav.contact")}
+      </a>
+    </div>
+  </div>
+
+  <nav class="flex justify-center gap-5 border-t border-navy/10 px-6 py-2 md:hidden" aria-label="Primary (mobile)">
+    {
+      nav.map((item) => (
+        <a href={item.href} class="text-sm font-medium text-navy/80">
+          {t(locale, item.key)}
+        </a>
+      ))
+    }
+  </nav>
+</header>
