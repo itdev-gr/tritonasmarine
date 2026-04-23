@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { Wrench } from "lucide-astro";
 ---
 <!doctype html>
 <html lang="en">
@@ -7,8 +8,9 @@ import "../styles/global.css";
     <meta charset="UTF-8" />
     <title>Triton Marine</title>
   </head>
-  <body>
-    <h1 class="text-4xl font-display text-navy p-8">Triton Marine — Tailwind works</h1>
-    <p class="text-teal px-8">Accent color test.</p>
+  <body class="p-8">
+    <h1 class="text-4xl font-display text-navy">Triton Marine</h1>
+    <Wrench class="w-6 h-6 text-teal mt-4" />
+    <p class="text-teal mt-2">Icon test.</p>
   </body>
 </html>
