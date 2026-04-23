@@ -1,0 +1,49 @@
+---
+import type { Locale } from "../i18n/utils";
+import { t, localizedPath } from "../i18n/utils";
+
+export interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden bg-navy text-foam">
+  <div class="absolute inset-0 -z-10">
+    <img
+      src="/images/hero-home.jpg"
+      alt=""
+      class="h-full w-full object-cover opacity-60"
+      data-hero-image
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/40 to-navy"></div>
+  </div>
+
+  <div class="mx-auto flex min-h-[80vh] max-w-[1200px] flex-col justify-center px-6 py-24">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal" data-reveal>
+      {t(locale, "hero.eyebrow")}
+    </p>
+    <h1 class="mt-6 max-w-3xl font-display text-5xl font-semibold leading-tight sm:text-6xl md:text-7xl" data-hero-title>
+      {t(locale, "hero.title")}
+    </h1>
+    <p class="mt-6 max-w-xl text-lg text-foam/85" data-reveal>
+      {t(locale, "hero.subtitle")}
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
+      <a
+        href={localizedPath(locale, "/services")}
+        class="rounded-lg bg-teal px-6 py-3 text-sm font-semibold text-foam transition hover:bg-foam hover:text-navy"
+      >
+        {t(locale, "hero.cta_primary")}
+      </a>
+      <a
+        href={localizedPath(locale, "/contact")}
+        class="rounded-lg border border-foam/40 px-6 py-3 text-sm font-semibold text-foam transition hover:bg-foam hover:text-navy"
+      >
+        {t(locale, "hero.cta_secondary")}
+      </a>
+    </div>
+  </div>
+</section>
