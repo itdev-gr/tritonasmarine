@@ -8,7 +8,7 @@ export interface Props {
 const { locale } = Astro.props;
 ---
 
-<section class="relative isolate overflow-hidden bg-navy text-foam">
+<section class="bg-navy text-foam relative isolate overflow-hidden">
   <div class="absolute inset-0 -z-10">
     <img
       src="/images/hero-home.jpg"
@@ -18,29 +18,32 @@ const { locale } = Astro.props;
       loading="eager"
       fetchpriority="high"
     />
-    <div class="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/40 to-navy"></div>
+    <div class="from-navy/60 via-navy/40 to-navy absolute inset-0 bg-gradient-to-b"></div>
   </div>
 
   <div class="mx-auto flex min-h-[80vh] max-w-[1200px] flex-col justify-center px-6 py-24">
-    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal" data-reveal>
+    <p class="text-teal text-xs font-semibold tracking-[0.2em] uppercase" data-reveal>
       {t(locale, "hero.eyebrow")}
     </p>
-    <h1 class="mt-6 max-w-3xl font-display text-5xl font-semibold leading-tight sm:text-6xl md:text-7xl" data-hero-title>
+    <h1
+      class="font-display mt-6 max-w-3xl text-5xl leading-tight font-semibold sm:text-6xl md:text-7xl"
+      data-hero-title
+    >
       {t(locale, "hero.title")}
     </h1>
-    <p class="mt-6 max-w-xl text-lg text-foam/85" data-reveal>
+    <p class="text-foam/85 mt-6 max-w-xl text-lg" data-reveal>
       {t(locale, "hero.subtitle")}
     </p>
     <div class="mt-10 flex flex-wrap gap-3" data-reveal>
       <a
         href={localizedPath(locale, "/services")}
-        class="rounded-lg bg-teal px-6 py-3 text-sm font-semibold text-foam transition hover:bg-foam hover:text-navy"
+        class="bg-teal text-foam hover:bg-foam hover:text-navy rounded-lg px-6 py-3 text-sm font-semibold transition"
       >
         {t(locale, "hero.cta_primary")}
       </a>
       <a
         href={localizedPath(locale, "/contact")}
-        class="rounded-lg border border-foam/40 px-6 py-3 text-sm font-semibold text-foam transition hover:bg-foam hover:text-navy"
+        class="border-foam/40 text-foam hover:bg-foam hover:text-navy rounded-lg border px-6 py-3 text-sm font-semibold transition"
       >
         {t(locale, "hero.cta_secondary")}
       </a>

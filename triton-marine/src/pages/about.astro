@@ -8,6 +8,7 @@ import { t } from "../i18n/utils";
 
 const locale = "en" as const;
 ---
+
 <BaseLayout
   locale={locale}
   title="About — Triton Marine"
@@ -17,10 +18,10 @@ const locale = "en" as const;
 
   <section class="bg-navy text-foam">
     <div class="mx-auto max-w-[1200px] px-6 py-24">
-      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal" data-reveal>
+      <p class="text-teal text-xs font-semibold tracking-[0.2em] uppercase" data-reveal>
         {t(locale, "about.heading")}
       </p>
-      <h1 class="mt-4 max-w-3xl font-display text-5xl font-semibold sm:text-6xl" data-reveal>
+      <h1 class="font-display mt-4 max-w-3xl text-5xl font-semibold sm:text-6xl" data-reveal>
         Lorem ipsum dolor sit amet
       </h1>
     </div>
@@ -29,12 +30,27 @@ const locale = "en" as const;
   <section class="bg-foam">
     <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-20 md:grid-cols-2">
       <div class="overflow-hidden rounded-lg" data-reveal>
-        <img src="/images/about.jpg" alt="Triton Marine crew" class="h-full w-full object-cover" loading="lazy" />
+        <img
+          src="/images/about.jpg"
+          alt="Triton Marine crew"
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
       </div>
-      <div class="space-y-4 text-navy/80" data-reveal>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus euismod arcu non ligula rhoncus, at placerat sapien tincidunt.</p>
-        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div class="text-navy/80 space-y-4" data-reveal>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus euismod arcu non ligula
+          rhoncus, at placerat sapien tincidunt.
+        </p>
+        <p>
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.
+        </p>
       </div>
     </div>
   </section>

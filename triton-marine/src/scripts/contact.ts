@@ -31,8 +31,9 @@ function setSubmitting(form: HTMLFormElement, submitting: boolean) {
 }
 
 function showSuccess(form: HTMLFormElement) {
-  const success = form.parentElement?.querySelector<HTMLElement>("[data-contact-success]")
-    ?? form.querySelector<HTMLElement>("[data-contact-success]");
+  const success =
+    form.parentElement?.querySelector<HTMLElement>("[data-contact-success]") ??
+    form.querySelector<HTMLElement>("[data-contact-success]");
   const message = form.dataset.msgSuccess ?? "Thanks!";
   if (!success) return;
   success.textContent = message;

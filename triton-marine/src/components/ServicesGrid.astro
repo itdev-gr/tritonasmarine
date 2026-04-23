@@ -15,7 +15,7 @@ const { locale, withHeading = true } = Astro.props;
   <div class="mx-auto max-w-[1200px] px-6">
     {
       withHeading && (
-        <h2 class="max-w-2xl font-display text-4xl font-semibold text-navy" data-reveal>
+        <h2 class="font-display text-navy max-w-2xl text-4xl font-semibold" data-reveal>
           {t(locale, "services.heading")}
         </h2>
       )

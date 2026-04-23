@@ -2,14 +2,7 @@
 import type { Locale } from "../i18n/utils";
 import { t, localizedPath } from "../i18n/utils";
 import type { Service } from "../data/services";
-import {
-  Wrench,
-  Droplets,
-  Snowflake,
-  Radio,
-  Hammer,
-  ClipboardCheck,
-} from "lucide-astro";
+import { Wrench, Droplets, Snowflake, Radio, Hammer, ClipboardCheck } from "lucide-astro";
 
 const iconMap: Record<string, typeof Wrench> = {
   wrench: Wrench,
@@ -31,15 +24,17 @@ const href = localizedPath(locale, `/services/${service.slug}`);
 
 <a
   href={href}
-  class="group flex flex-col rounded-lg border border-navy/10 bg-foam p-6 transition hover:-translate-y-1 hover:shadow-lg"
+  class="group border-navy/10 bg-foam flex flex-col rounded-lg border p-6 transition hover:-translate-y-1 hover:shadow-lg"
   data-reveal
 >
-  <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-teal/10 text-teal transition group-hover:bg-teal group-hover:text-foam">
+  <div
+    class="bg-teal/10 text-teal group-hover:bg-teal group-hover:text-foam flex h-12 w-12 items-center justify-center rounded-lg transition"
+  >
     <Icon class="h-6 w-6" />
   </div>
-  <h3 class="mt-5 font-display text-xl font-semibold text-navy">{service.name[locale]}</h3>
-  <p class="mt-2 text-sm text-navy/70">{service.shortDescription[locale]}</p>
-  <span class="mt-6 text-sm font-semibold text-teal transition group-hover:text-navy">
+  <h3 class="font-display text-navy mt-5 text-xl font-semibold">{service.name[locale]}</h3>
+  <p class="text-navy/70 mt-2 text-sm">{service.shortDescription[locale]}</p>
+  <span class="text-teal group-hover:text-navy mt-6 text-sm font-semibold transition">
     {t(locale, "services.learn_more")} →
   </span>
 </a>

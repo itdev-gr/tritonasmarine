@@ -8,6 +8,7 @@ import LocalBusinessSchema from "../../components/LocalBusinessSchema.astro";
 
 const locale = "gr" as const;
 ---
+
 <BaseLayout
   locale={locale}
   title="Επικοινωνία — Triton Marine"
@@ -18,10 +19,10 @@ const locale = "gr" as const;
 
   <section class="bg-navy text-foam">
     <div class="mx-auto max-w-[1200px] px-6 py-24">
-      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal" data-reveal>
+      <p class="text-teal text-xs font-semibold tracking-[0.2em] uppercase" data-reveal>
         {t(locale, "contact.heading")}
       </p>
-      <h1 class="mt-4 max-w-3xl font-display text-5xl font-semibold sm:text-6xl" data-reveal>
+      <h1 class="font-display mt-4 max-w-3xl text-5xl font-semibold sm:text-6xl" data-reveal>
         {t(locale, "contact.subheading")}
       </h1>
     </div>
@@ -32,18 +33,30 @@ const locale = "gr" as const;
       <div data-reveal>
         <ContactForm locale={locale} />
       </div>
-      <aside class="space-y-6 text-sm text-navy/80" data-reveal>
+      <aside class="text-navy/80 space-y-6 text-sm" data-reveal>
         <div>
-          <h2 class="text-xs font-semibold uppercase tracking-wide text-navy/60">{t(locale, "footer.address_label")}</h2>
+          <h2 class="text-navy/60 text-xs font-semibold tracking-wide uppercase">
+            {t(locale, "footer.address_label")}
+          </h2>
           <p class="mt-2">Placeholder διεύθυνση<br />Placeholder πόλη, Ελλάδα</p>
         </div>
         <div>
-          <h2 class="text-xs font-semibold uppercase tracking-wide text-navy/60">{t(locale, "footer.phone_label")}</h2>
-          <p class="mt-2"><a href="tel:+300000000000" class="hover:text-teal">+30 000 000 0000</a></p>
+          <h2 class="text-navy/60 text-xs font-semibold tracking-wide uppercase">
+            {t(locale, "footer.phone_label")}
+          </h2>
+          <p class="mt-2">
+            <a href="tel:+300000000000" class="hover:text-teal">+30 000 000 0000</a>
+          </p>
         </div>
         <div>
-          <h2 class="text-xs font-semibold uppercase tracking-wide text-navy/60">{t(locale, "footer.email_label")}</h2>
-          <p class="mt-2"><a href="mailto:hello@triton-marine.example" class="hover:text-teal">hello@triton-marine.example</a></p>
+          <h2 class="text-navy/60 text-xs font-semibold tracking-wide uppercase">
+            {t(locale, "footer.email_label")}
+          </h2>
+          <p class="mt-2">
+            <a href="mailto:hello@triton-marine.example" class="hover:text-teal"
+              >hello@triton-marine.example</a
+            >
+          </p>
         </div>
       </aside>
     </div>

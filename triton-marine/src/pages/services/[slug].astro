@@ -14,6 +14,7 @@ const locale = "en" as const;
 const { slug } = Astro.params;
 const service = services.find((s) => s.slug === slug)!;
 ---
+
 <BaseLayout
   locale={locale}
   title={`${service.name.en} — Triton Marine`}
@@ -21,7 +22,7 @@ const service = services.find((s) => s.slug === slug)!;
 >
   <Header slot="header" locale={locale} />
 
-  <section class="relative isolate overflow-hidden bg-navy text-foam">
+  <section class="bg-navy text-foam relative isolate overflow-hidden">
     <div class="absolute inset-0 -z-10">
       <img
         src={service.heroImage}
@@ -30,16 +31,19 @@ const service = services.find((s) => s.slug === slug)!;
         data-hero-parallax
         loading="eager"
       />
-      <div class="absolute inset-0 bg-gradient-to-b from-navy/60 to-navy"></div>
+      <div class="from-navy/60 to-navy absolute inset-0 bg-gradient-to-b"></div>
     </div>
     <div class="mx-auto max-w-[1200px] px-6 py-28">
-      <a href={localizedPath(locale, "/services")} class="text-sm font-semibold text-teal hover:text-foam">
+      <a
+        href={localizedPath(locale, "/services")}
+        class="text-teal hover:text-foam text-sm font-semibold"
+      >
         ← {t(locale, "nav.services")}
       </a>
-      <h1 class="mt-4 max-w-3xl font-display text-5xl font-semibold sm:text-6xl" data-reveal>
+      <h1 class="font-display mt-4 max-w-3xl text-5xl font-semibold sm:text-6xl" data-reveal>
         {service.name.en}
       </h1>
-      <p class="mt-4 max-w-2xl text-foam/85" data-reveal>
+      <p class="text-foam/85 mt-4 max-w-2xl" data-reveal>
         {service.shortDescription.en}
       </p>
     </div>
@@ -47,7 +51,7 @@ const service = services.find((s) => s.slug === slug)!;
 
   <section class="bg-foam">
     <div class="mx-auto max-w-[900px] px-6 py-20">
-      <p class="text-lg leading-relaxed text-navy/80" data-reveal>
+      <p class="text-navy/80 text-lg leading-relaxed" data-reveal>
         {service.longDescription.en}
       </p>
     </div>

@@ -21,16 +21,14 @@ const stats = [
       stats.map((stat) => (
         <div class="text-center" data-reveal>
           <div
-            class="font-display text-5xl font-semibold text-teal"
+            class="font-display text-teal text-5xl font-semibold"
             data-stat-counter
             data-stat-target={stat.value}
             data-stat-suffix={stat.suffix}
           >
             0{stat.suffix}
           </div>
-          <p class="mt-2 text-sm uppercase tracking-wide text-foam/70">
-            {t(locale, stat.key)}
-          </p>
+          <p class="text-foam/70 mt-2 text-sm tracking-wide uppercase">{t(locale, stat.key)}</p>
         </div>
       ))
     }

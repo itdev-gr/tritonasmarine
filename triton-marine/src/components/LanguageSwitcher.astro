@@ -9,12 +9,13 @@ const { locale } = Astro.props;
 
 const targetLocale: Locale = locale === "en" ? "gr" : "en";
 const href = alternateUrl(Astro.url, targetLocale);
-const label = targetLocale === "gr" ? t(locale, "lang.toggle.to_gr") : t(locale, "lang.toggle.to_en");
+const label =
+  targetLocale === "gr" ? t(locale, "lang.toggle.to_gr") : t(locale, "lang.toggle.to_en");
 ---
 
 <a
   href={href}
-  class="inline-flex items-center gap-1 rounded-lg border border-navy/20 px-3 py-1.5 text-sm font-semibold text-navy transition hover:bg-navy hover:text-foam"
+  class="border-navy/20 text-navy hover:bg-navy hover:text-foam inline-flex items-center gap-1 rounded-lg border px-3 py-1.5 text-sm font-semibold transition"
   aria-label={`Switch language to ${targetLocale === "gr" ? "Greek" : "English"}`}
 >
   {label}
