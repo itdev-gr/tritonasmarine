@@ -2,6 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import { t, localizedPath } from "../../i18n/utils";
+
 const locale = "gr" as const;
 ---
 <BaseLayout
@@ -10,6 +12,20 @@ const locale = "gr" as const;
   description="Η σελίδα που ψάχνετε δεν υπάρχει."
 >
   <Header slot="header" locale={locale} />
-  <h1 class="mx-auto max-w-[1200px] p-8 text-4xl font-display">404 (GR) — περιεχόμενο σύντομα</h1>
+
+  <section class="bg-navy text-foam">
+    <div class="mx-auto flex min-h-[60vh] max-w-[1200px] flex-col items-start justify-center px-6 py-24">
+      <p class="font-display text-[10rem] font-semibold leading-none text-teal">404</p>
+      <h1 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">{t(locale, "notfound.title")}</h1>
+      <p class="mt-3 max-w-xl text-foam/80">{t(locale, "notfound.subtitle")}</p>
+      <a
+        href={localizedPath(locale, "/")}
+        class="mt-8 rounded-lg bg-teal px-6 py-3 text-sm font-semibold text-foam transition hover:bg-foam hover:text-navy"
+      >
+        {t(locale, "notfound.cta")}
+      </a>
+    </div>
+  </section>
+
   <Footer slot="footer" locale={locale} />
 </BaseLayout>
