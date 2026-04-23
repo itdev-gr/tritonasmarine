@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+const locale = "gr" as const;
+---
+<BaseLayout
+  locale={locale}
+  title="Υπηρεσίες — Triton Marine"
+  description="Όλες οι ναυτικές υπηρεσίες της Triton Marine."
+>
+  <Header slot="header" locale={locale} />
+  <h1 class="mx-auto max-w-[1200px] p-8 text-4xl font-display">Υπηρεσίες (GR) — περιεχόμενο σύντομα</h1>
+  <Footer slot="footer" locale={locale} />
+</BaseLayout>
