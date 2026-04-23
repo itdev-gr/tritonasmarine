@@ -19,27 +19,27 @@ Copy `.env.example` to `.env` and fill in values:
 
 ## Scripts
 
-| Command | What it does |
-|---------|--------------|
-| `npm run dev` | Start dev server with HMR |
-| `npm run build` | Production build to `dist/` and `.vercel/output/` |
-| `npm run preview` | Preview the production build |
-| `npm run check` | Run `astro check` (type check + diagnostics) |
-| `npm run lint` | ESLint |
-| `npm run format` | Format all files with Prettier |
-| `npm run format:check` | Check Prettier formatting without writing |
+| Command                | What it does                                      |
+| ---------------------- | ------------------------------------------------- |
+| `npm run dev`          | Start dev server with HMR                         |
+| `npm run build`        | Production build to `dist/` and `.vercel/output/` |
+| `npm run preview`      | Preview the production build                      |
+| `npm run check`        | Run `astro check` (type check + diagnostics)      |
+| `npm run lint`         | ESLint                                            |
+| `npm run format`       | Format all files with Prettier                    |
+| `npm run format:check` | Check Prettier formatting without writing         |
 
 ## Routes
 
-| Route | Purpose |
-|-------|---------|
-| `/` | Home (EN) |
-| `/about` | About |
-| `/services` | Services list |
-| `/services/[slug]` | Service detail (6 services) |
-| `/contact` | Contact form |
-| `/gr/...` | Greek mirrors of all the above |
-| `/404` | Not found |
+| Route              | Purpose                        |
+| ------------------ | ------------------------------ |
+| `/`                | Home (EN)                      |
+| `/about`           | About                          |
+| `/services`        | Services list                  |
+| `/services/[slug]` | Service detail (6 services)    |
+| `/contact`         | Contact form                   |
+| `/gr/...`          | Greek mirrors of all the above |
+| `/404`             | Not found                      |
 
 ## Manual QA checklist (run before each deploy)
 
