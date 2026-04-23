@@ -1,0 +1,47 @@
+---
+import type { Locale } from "../i18n/utils";
+import { htmlLang } from "../i18n/utils";
+
+export interface Props {
+  title: string;
+  description: string;
+  locale: Locale;
+  canonicalPath: string;
+  alternatePath: string;
+  ogImage?: string;
+}
+
+const { title, description, locale, canonicalPath, alternatePath, ogImage = "/og-default.jpg" } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "";
+const canonical = `${siteUrl}${canonicalPath}`;
+const alternateEn = locale === "en" ? canonical : `${siteUrl}${alternatePath}`;
+const alternateGr = locale === "gr" ? canonical : `${siteUrl}${alternatePath}`;
+const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
+const ogLocale = locale === "gr" ? "el_GR" : "en_US";
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang="en" href={alternateEn} />
+<link rel="alternate" hreflang="el" href={alternateGr} />
+<link rel="alternate" hreflang="x-default" href={locale === "en" ? canonical : alternateEn} />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:locale" content={ogLocale} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="htmlLang" content={htmlLang(locale)} />
