@@ -1,0 +1,39 @@
+---
+import "../styles/global.css";
+import SeoHead from "../components/SeoHead.astro";
+import type { Locale } from "../i18n/utils";
+import { htmlLang, alternateUrl } from "../i18n/utils";
+
+export interface Props {
+  title: string;
+  description: string;
+  locale: Locale;
+  ogImage?: string;
+}
+
+const { title, description, locale, ogImage } = Astro.props;
+const canonicalPath = Astro.url.pathname;
+const alternatePath = alternateUrl(Astro.url, locale === "en" ? "gr" : "en");
+---
+
+<!doctype html>
+<html lang={htmlLang(locale)}>
+  <head>
+    <SeoHead
+      title={title}
+      description={description}
+      locale={locale}
+      canonicalPath={canonicalPath}
+      alternatePath={alternatePath}
+      ogImage={ogImage}
+    />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot name="header" />
+    <main class="min-h-screen">
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>
