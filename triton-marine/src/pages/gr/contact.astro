@@ -4,6 +4,7 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import ContactForm from "../../components/ContactForm.astro";
 import { t } from "../../i18n/utils";
+import LocalBusinessSchema from "../../components/LocalBusinessSchema.astro";
 
 const locale = "gr" as const;
 ---
@@ -12,6 +13,7 @@ const locale = "gr" as const;
   title="Επικοινωνία — Triton Marine"
   description="Επικοινωνήστε με την Triton Marine — ζητήστε προσφορά ή κάντε μια ερώτηση."
 >
+  <LocalBusinessSchema slot="head" locale={locale} />
   <Header slot="header" locale={locale} />
 
   <section class="bg-navy text-foam">

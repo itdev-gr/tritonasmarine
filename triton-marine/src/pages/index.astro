@@ -6,6 +6,7 @@ import Hero from "../components/Hero.astro";
 import ServicesGrid from "../components/ServicesGrid.astro";
 import StatsBar from "../components/StatsBar.astro";
 import CtaSection from "../components/CtaSection.astro";
+import LocalBusinessSchema from "../components/LocalBusinessSchema.astro";
 
 const locale = "en" as const;
 ---
@@ -14,6 +15,7 @@ const locale = "en" as const;
   title="Triton Marine — Marine services you can trust"
   description="Triton Marine provides professional marine services along the Greek coast: engine service, hull cleaning, winterization, electronics, and more."
 >
+  <LocalBusinessSchema slot="head" locale={locale} />
   <Header slot="header" locale={locale} />
   <Hero locale={locale} />
   <ServicesGrid locale={locale} />
