@@ -1,0 +1,27 @@
+---
+import type { Locale } from "../i18n/utils";
+import { t } from "../i18n/utils";
+import { services } from "../data/services";
+import ServiceCard from "./ServiceCard.astro";
+
+export interface Props {
+  locale: Locale;
+  withHeading?: boolean;
+}
+const { locale, withHeading = true } = Astro.props;
+---
+
+<section class="bg-foam py-20">
+  <div class="mx-auto max-w-[1200px] px-6">
+    {
+      withHeading && (
+        <h2 class="max-w-2xl font-display text-4xl font-semibold text-navy" data-reveal>
+          {t(locale, "services.heading")}
+        </h2>
+      )
+    }
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-services-grid>
+      {services.map((service) => <ServiceCard service={service} locale={locale} />)}
+    </div>
+  </div>
+</section>
