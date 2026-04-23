@@ -35,5 +35,8 @@ const alternatePath = alternateUrl(Astro.url, locale === "en" ? "gr" : "en");
       <slot />
     </main>
     <slot name="footer" />
+    <script>
+      import "../scripts/animations";
+    </script>
   </body>
 </html>
