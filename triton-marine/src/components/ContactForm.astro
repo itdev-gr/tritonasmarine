@@ -1,0 +1,90 @@
+---
+import type { Locale } from "../i18n/utils";
+import { t } from "../i18n/utils";
+
+export interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<form
+  class="space-y-5"
+  data-contact-form
+  data-locale={locale}
+  data-msg-success={t(locale, "form.success")}
+  data-msg-error={t(locale, "form.error")}
+  data-msg-not-configured={t(locale, "form.not_configured")}
+  data-msg-required={t(locale, "form.validation.required")}
+  data-msg-email={t(locale, "form.validation.email")}
+  novalidate
+>
+  <input type="hidden" name="from_name" value="Triton Marine website" />
+  <input type="hidden" name="subject_prefix" value="[Triton Marine]" />
+
+  <div class="grid gap-5 md:grid-cols-2">
+    <label class="block">
+      <span class="mb-1 block text-sm font-medium text-navy">{t(locale, "form.name")}</span>
+      <input
+        type="text"
+        name="name"
+        required
+        class="block w-full rounded-lg border border-navy/20 bg-foam px-4 py-3 text-navy transition focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/30"
+      />
+    </label>
+    <label class="block">
+      <span class="mb-1 block text-sm font-medium text-navy">{t(locale, "form.email")}</span>
+      <input
+        type="email"
+        name="email"
+        required
+        class="block w-full rounded-lg border border-navy/20 bg-foam px-4 py-3 text-navy transition focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/30"
+      />
+    </label>
+  </div>
+
+  <label class="block">
+    <span class="mb-1 block text-sm font-medium text-navy">{t(locale, "form.phone")}</span>
+    <input
+      type="tel"
+      name="phone"
+      class="block w-full rounded-lg border border-navy/20 bg-foam px-4 py-3 text-navy transition focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/30"
+    />
+  </label>
+
+  <label class="block">
+    <span class="mb-1 block text-sm font-medium text-navy">{t(locale, "form.subject")}</span>
+    <input
+      type="text"
+      name="subject"
+      required
+      class="block w-full rounded-lg border border-navy/20 bg-foam px-4 py-3 text-navy transition focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/30"
+    />
+  </label>
+
+  <label class="block">
+    <span class="mb-1 block text-sm font-medium text-navy">{t(locale, "form.message")}</span>
+    <textarea
+      name="message"
+      rows="5"
+      required
+      class="block w-full rounded-lg border border-navy/20 bg-foam px-4 py-3 text-navy transition focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/30"
+    ></textarea>
+  </label>
+
+  <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <div class="flex items-center gap-4">
+    <button
+      type="submit"
+      class="inline-flex items-center gap-2 rounded-lg bg-teal px-6 py-3 text-sm font-semibold text-foam transition hover:bg-navy disabled:cursor-not-allowed disabled:opacity-60"
+      data-contact-submit
+    >
+      <span data-contact-submit-label>{t(locale, "form.submit")}</span>
+      <span class="hidden h-4 w-4 animate-spin rounded-full border-2 border-foam border-t-transparent" data-contact-spinner aria-hidden="true"></span>
+    </button>
+    <p class="text-sm text-rust" data-contact-error role="alert" aria-live="polite"></p>
+  </div>
+
+  <p class="hidden text-sm font-medium text-teal" data-contact-success role="status" aria-live="polite"></p>
+</form>
