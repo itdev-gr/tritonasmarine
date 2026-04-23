@@ -2,7 +2,9 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
+import CtaSection from "../../../components/CtaSection.astro";
 import { services } from "../../../data/services";
+import { t, localizedPath } from "../../../i18n/utils";
 
 export function getStaticPaths() {
   return services.map((s) => ({ params: { slug: s.slug } }));
@@ -18,6 +20,40 @@ const service = services.find((s) => s.slug === slug)!;
   description={service.shortDescription.gr}
 >
   <Header slot="header" locale={locale} />
-  <h1 class="mx-auto max-w-[1200px] p-8 text-4xl font-display">{service.name.gr} (GR) — περιεχόμενο σύντομα</h1>
+
+  <section class="relative isolate overflow-hidden bg-navy text-foam">
+    <div class="absolute inset-0 -z-10">
+      <img
+        src={service.heroImage}
+        alt=""
+        class="h-full w-full object-cover opacity-50"
+        data-hero-parallax
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-navy/60 to-navy"></div>
+    </div>
+    <div class="mx-auto max-w-[1200px] px-6 py-28">
+      <a href={localizedPath(locale, "/services")} class="text-sm font-semibold text-teal hover:text-foam">
+        ← {t(locale, "nav.services")}
+      </a>
+      <h1 class="mt-4 max-w-3xl font-display text-5xl font-semibold sm:text-6xl" data-reveal>
+        {service.name.gr}
+      </h1>
+      <p class="mt-4 max-w-2xl text-foam/85" data-reveal>
+        {service.shortDescription.gr}
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-foam">
+    <div class="mx-auto max-w-[900px] px-6 py-20">
+      <p class="text-lg leading-relaxed text-navy/80" data-reveal>
+        {service.longDescription.gr}
+      </p>
+    </div>
+  </section>
+
+  <CtaSection locale={locale} />
+
   <Footer slot="footer" locale={locale} />
 </BaseLayout>

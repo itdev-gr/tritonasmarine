@@ -2,6 +2,10 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import ServicesGrid from "../../components/ServicesGrid.astro";
+import CtaSection from "../../components/CtaSection.astro";
+import { t } from "../../i18n/utils";
+
 const locale = "en" as const;
 ---
 <BaseLayout
@@ -10,6 +14,20 @@ const locale = "en" as const;
   description="All marine services offered by Triton Marine."
 >
   <Header slot="header" locale={locale} />
-  <h1 class="mx-auto max-w-[1200px] p-8 text-4xl font-display">Services (EN) — content coming soon</h1>
+
+  <section class="bg-navy text-foam">
+    <div class="mx-auto max-w-[1200px] px-6 py-24">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal" data-reveal>
+        {t(locale, "nav.services")}
+      </p>
+      <h1 class="mt-4 max-w-3xl font-display text-5xl font-semibold sm:text-6xl" data-reveal>
+        {t(locale, "services.heading")}
+      </h1>
+    </div>
+  </section>
+
+  <ServicesGrid locale={locale} withHeading={false} />
+  <CtaSection locale={locale} />
+
   <Footer slot="footer" locale={locale} />
 </BaseLayout>
