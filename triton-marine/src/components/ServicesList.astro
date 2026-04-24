@@ -9,6 +9,10 @@ export interface Props {
 const { locale } = Astro.props;
 ---
 
-<section class="border-t border-navy/10">
-  {services.map((service, i) => <ServiceRow service={service} locale={locale} reversed={i % 2 === 1} />)}
+<section class="border-navy/10 border-t">
+  {
+    services.map((service, i) => (
+      <ServiceRow service={service} locale={locale} reversed={i % 2 === 1} />
+    ))
+  }
 </section>

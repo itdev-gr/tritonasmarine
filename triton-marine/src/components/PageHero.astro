@@ -25,7 +25,7 @@ const { locale, titleKey, backgroundImage, crumbs } = Astro.props;
     <div class="from-navy/80 via-navy/70 to-navy/80 absolute inset-0 bg-gradient-to-b"></div>
   </div>
 
-  <div class="mx-auto max-w-[1200px] px-6 py-28 text-foam">
+  <div class="text-foam mx-auto max-w-[1200px] px-6 py-28">
     <h1
       class="font-display text-5xl font-semibold tracking-tight sm:text-6xl md:text-7xl"
       data-reveal
@@ -37,7 +37,7 @@ const { locale, titleKey, backgroundImage, crumbs } = Astro.props;
       {
         crumbs.map((crumb, i) => (
           <>
-            {i > 0 && <ChevronRight class="h-4 w-4 text-foam/50" aria-hidden="true" />}
+            {i > 0 && <ChevronRight class="text-foam/50 h-4 w-4" aria-hidden="true" />}
             {crumb.href ? (
               <a href={localizedPath(locale, crumb.href)} class="text-foam/70 hover:text-teal">
                 {t(locale, crumb.labelKey)}
