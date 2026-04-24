@@ -41,5 +41,17 @@
   "notfound.subtitle": "Η σελίδα που ψάχνετε δεν υπάρχει ή έχει μετακινηθεί.",
   "notfound.cta": "Αρχική",
   "lang.toggle.to_gr": "ΕΛ",
-  "lang.toggle.to_en": "EN"
+  "lang.toggle.to_en": "EN",
+  "breadcrumb.home": "Αρχική",
+  "breadcrumb.services": "Υπηρεσίες",
+  "services.details": "Λεπτομέρειες",
+  "stats_compact.clients": "Ευχαριστημένοι πελάτες",
+  "stats_compact.services": "Εργασίες ολοκληρωμένες",
+  "stats_compact.partners": "Συνεργαζόμενες μαρίνες",
+  "booking.eyebrow": "ΚΛΕΙΣΤΕ ΡΑΝΤΕΒΟΥ",
+  "booking.title": "Κλείστε ραντεβού",
+  "booking.subtitle": "Πείτε μας τι χρειάζεστε και πού βρίσκεται το σκάφος σας. Ένας τεχνικός θα σας καλέσει εντός μίας εργάσιμης ημέρας.",
+  "booking.submit": "Υποβολή αιτήματος",
+  "form.location": "Τοποθεσία / μαρίνα",
+  "form.select_service": "Επιλέξτε υπηρεσία"
 }

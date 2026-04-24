@@ -41,5 +41,17 @@
   "notfound.subtitle": "The page you're looking for doesn't exist or has moved.",
   "notfound.cta": "Go home",
   "lang.toggle.to_gr": "ΕΛ",
-  "lang.toggle.to_en": "EN"
+  "lang.toggle.to_en": "EN",
+  "breadcrumb.home": "Home",
+  "breadcrumb.services": "Services",
+  "services.details": "Details",
+  "stats_compact.clients": "Happy clients",
+  "stats_compact.services": "Services completed",
+  "stats_compact.partners": "Marina partners",
+  "booking.eyebrow": "BOOK NOW",
+  "booking.title": "Book a service",
+  "booking.subtitle": "Tell us what you need and where your boat is. A technician will call you back within one business day.",
+  "booking.submit": "Request booking",
+  "form.location": "Location / marina",
+  "form.select_service": "Select a service"
 }
