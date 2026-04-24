@@ -2,8 +2,10 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
-import ServicesGrid from "../../../components/ServicesGrid.astro";
-import CtaSection from "../../../components/CtaSection.astro";
+import PageHero from "../../../components/PageHero.astro";
+import ServicesList from "../../../components/ServicesList.astro";
+import StatsCompact from "../../../components/StatsCompact.astro";
+import BookingForm from "../../../components/BookingForm.astro";
 import { t } from "../../../i18n/utils";
 
 const locale = "gr" as const;
@@ -16,19 +18,38 @@ const locale = "gr" as const;
 >
   <Header slot="header" locale={locale} />
 
-  <section class="bg-navy text-foam">
-    <div class="mx-auto max-w-[1200px] px-6 py-24">
-      <p class="text-teal text-xs font-semibold tracking-[0.2em] uppercase" data-reveal>
-        {t(locale, "nav.services")}
-      </p>
-      <h1 class="font-display mt-4 max-w-3xl text-5xl font-semibold sm:text-6xl" data-reveal>
-        {t(locale, "services.heading")}
-      </h1>
+  <PageHero
+    locale={locale}
+    titleKey="nav.services"
+    backgroundImage="/images/hero-home.jpg"
+    crumbs={[
+      { labelKey: "breadcrumb.home", href: "/" },
+      { labelKey: "breadcrumb.services" },
+    ]}
+  />
+
+  <ServicesList locale={locale} />
+
+  <StatsCompact locale={locale} />
+
+  <section class="bg-deep text-foam">
+    <div class="mx-auto grid max-w-[1200px] gap-10 px-6 py-20 md:grid-cols-[5fr_7fr] md:gap-16">
+      <div data-reveal>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal">
+          {t(locale, "booking.eyebrow")}
+        </p>
+        <h2 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+          {t(locale, "booking.title")}
+        </h2>
+        <p class="mt-4 text-foam/80">
+          {t(locale, "booking.subtitle")}
+        </p>
+      </div>
+      <div class="rounded-lg bg-foam p-8" data-reveal>
+        <BookingForm locale={locale} />
+      </div>
     </div>
   </section>
-
-  <ServicesGrid locale={locale} withHeading={false} />
-  <CtaSection locale={locale} />
 
   <Footer slot="footer" locale={locale} />
 </BaseLayout>
