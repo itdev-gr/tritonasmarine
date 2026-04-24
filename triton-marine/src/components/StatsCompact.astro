@@ -1,0 +1,41 @@
+---
+import type { Locale } from "../i18n/utils";
+import { t } from "../i18n/utils";
+import { Users, CheckCircle2, Anchor } from "lucide-astro";
+
+export interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+const stats = [
+  { key: "stats_compact.clients", value: 2500, suffix: "+", Icon: Users },
+  { key: "stats_compact.services", value: 5800, suffix: "+", Icon: CheckCircle2 },
+  { key: "stats_compact.partners", value: 7, suffix: "", Icon: Anchor },
+] as const;
+---
+
+<section class="bg-foam">
+  <div class="mx-auto grid max-w-[1200px] gap-8 px-6 py-16 md:grid-cols-3 md:divide-x md:divide-navy/10">
+    {
+      stats.map(({ key, value, suffix, Icon }) => (
+        <div class="flex items-center gap-5 md:px-8" data-reveal>
+          <div class="flex h-14 w-14 flex-none items-center justify-center rounded-lg bg-teal/10 text-teal">
+            <Icon class="h-7 w-7" />
+          </div>
+          <div>
+            <div
+              class="font-display text-4xl font-semibold text-navy"
+              data-stat-counter
+              data-stat-target={value}
+              data-stat-suffix={suffix}
+            >
+              0{suffix}
+            </div>
+            <p class="mt-1 text-sm uppercase tracking-wide text-navy/60">{t(locale, key)}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
