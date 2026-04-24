@@ -2,9 +2,11 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
+import PageHero from "../../../components/PageHero.astro";
+import ProcessSteps from "../../../components/ProcessSteps.astro";
 import CtaSection from "../../../components/CtaSection.astro";
 import { services } from "../../../data/services";
-import { t, localizedPath } from "../../../i18n/utils";
+import { t } from "../../../i18n/utils";
 
 export function getStaticPaths() {
   return services.map((s) => ({ params: { slug: s.slug } }));
@@ -22,38 +24,54 @@ const service = services.find((s) => s.slug === slug)!;
 >
   <Header slot="header" locale={locale} />
 
-  <section class="bg-navy text-foam relative isolate overflow-hidden">
-    <div class="absolute inset-0 -z-10">
-      <img
-        src={service.heroImage}
-        alt=""
-        class="h-full w-full object-cover opacity-50"
-        data-hero-parallax
-        loading="eager"
-      />
-      <div class="from-navy/60 to-navy absolute inset-0 bg-gradient-to-b"></div>
-    </div>
-    <div class="mx-auto max-w-[1200px] px-6 py-28">
-      <a
-        href={localizedPath(locale, "/services")}
-        class="text-teal hover:text-foam text-sm font-semibold"
-      >
-        ← {t(locale, "nav.services")}
-      </a>
-      <h1 class="font-display mt-4 max-w-3xl text-5xl font-semibold sm:text-6xl" data-reveal>
-        {service.name.gr}
-      </h1>
-      <p class="text-foam/85 mt-4 max-w-2xl" data-reveal>
-        {service.shortDescription.gr}
+  <PageHero
+    locale={locale}
+    title={service.name.gr}
+    backgroundImage={service.heroImage}
+    crumbs={[
+      { labelKey: "breadcrumb.home", href: "/" },
+      { labelKey: "breadcrumb.services", href: "/services" },
+      { labelKey: "breadcrumb.services" },
+    ]}
+  />
+
+  <section class="bg-foam">
+    <div class="mx-auto max-w-[900px] px-6 py-20">
+      <p class="text-teal text-xs font-semibold tracking-[0.2em] uppercase" data-reveal>
+        {service.eyebrow.gr}
       </p>
+      <h2 class="font-display text-navy mt-3 text-4xl font-semibold sm:text-5xl" data-reveal>
+        {service.shortDescription.gr}
+      </h2>
+      <div class="text-navy/80 mt-6 space-y-4 text-lg leading-relaxed" data-reveal>
+        {service.intro.map((p) => <p>{p.gr}</p>)}
+      </div>
     </div>
   </section>
 
   <section class="bg-foam">
+    <div class="mx-auto grid max-w-[1200px] gap-6 px-6 pb-10 md:grid-cols-2">
+      {
+        service.galleryImages.map((src) => (
+          <div class="overflow-hidden rounded-lg" data-reveal>
+            <img src={src} alt="" class="h-full w-full object-cover" loading="lazy" />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <ProcessSteps
+    locale={locale}
+    heading={t(locale, "process.how_it_works")}
+    steps={service.processSteps}
+  />
+
+  <section class="bg-foam">
     <div class="mx-auto max-w-[900px] px-6 py-20">
-      <p class="text-navy/80 text-lg leading-relaxed" data-reveal>
-        {service.longDescription.gr}
-      </p>
+      <div class="text-navy/80 space-y-4 text-lg leading-relaxed" data-reveal>
+        {service.conclusion.map((p) => <p>{p.gr}</p>)}
+      </div>
     </div>
   </section>
 

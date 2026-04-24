@@ -5,12 +5,14 @@ import { ChevronRight } from "lucide-astro";
 
 export interface Props {
   locale: Locale;
-  titleKey: keyof typeof import("../i18n/en.json");
+  title?: string;
+  titleKey?: keyof typeof import("../i18n/en.json");
   backgroundImage: string;
   crumbs: { labelKey: keyof typeof import("../i18n/en.json"); href?: string }[];
 }
 
-const { locale, titleKey, backgroundImage, crumbs } = Astro.props;
+const { locale, title, titleKey, backgroundImage, crumbs } = Astro.props;
+const resolvedTitle = title ?? (titleKey ? t(locale, titleKey) : "");
 ---
 
 <section class="relative isolate overflow-hidden">
@@ -30,7 +32,7 @@ const { locale, titleKey, backgroundImage, crumbs } = Astro.props;
       class="font-display text-5xl font-semibold tracking-tight sm:text-6xl md:text-7xl"
       data-reveal
     >
-      {t(locale, titleKey)}
+      {resolvedTitle}
     </h1>
 
     <nav class="mt-6 flex flex-wrap items-center gap-2 text-sm" aria-label="Breadcrumb" data-reveal>

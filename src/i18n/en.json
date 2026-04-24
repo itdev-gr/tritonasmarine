@@ -4,8 +4,8 @@
   "nav.services": "Services",
   "nav.contact": "Contact",
   "hero.eyebrow": "Marine services you can trust",
-  "hero.title": "Lorem ipsum dolor sit amet",
-  "hero.subtitle": "Consectetur adipiscing elit. Phasellus euismod arcu non ligula rhoncus, at placerat sapien tincidunt.",
+  "hero.title": "Marine services from the heart of Patmos",
+  "hero.subtitle": "Full-service yard for haul-out, winter storage, repairs, and custom construction — in Skala harbor, on the island of Patmos.",
   "hero.cta_primary": "Our services",
   "hero.cta_secondary": "Contact us",
   "services.heading": "What we do",
@@ -62,5 +62,10 @@
   "community.intro_p3": "Supporting the Patmian maritime community has been our purpose since day one: keeping the island's boats safe, serviceable, and sailing.",
   "community.harbor_title": "A natural harbor",
   "community.harbor_p1": "Skala's sheltered bay has served merchants and sailors for over two thousand years. Today it hosts a modest commercial port, a daily ferry line, and a seasonal marina.",
-  "community.harbor_p2": "The calm anchorage and year-round accessibility make Patmos one of the most reliable places in the eastern Aegean for boat maintenance and storage."
+  "community.harbor_p2": "The calm anchorage and year-round accessibility make Patmos one of the most reliable places in the eastern Aegean for boat maintenance and storage.",
+  "about.hero_title": "A boatyard built on the harbor of Patmos",
+  "about.p1": "Triton Marine is a family-run boatyard in Skala, on the Greek island of Patmos. We haul, store, repair, and build boats — for the local fleet, for visiting yachts, and for owners who've trusted us with their vessels for years.",
+  "about.p2": "Our team is small and senior: shipwrights, engine technicians, and marine electricians who grew up around the harbor. We know the waters, the weather, and the quirks of every type of boat that calls the Dodecanese home.",
+  "about.p3": "We operate year-round. Summer is launches, emergency repairs, and small-job turnarounds; winter is haul-outs, full refits, and custom builds. Whatever season you find us in, the goal is the same: get your boat back in the water, safe and running right.",
+  "process.how_it_works": "How it works"
 }

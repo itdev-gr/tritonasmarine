@@ -1,0 +1,71 @@
+---
+import type { Locale } from "../i18n/utils";
+import type { ProcessStep } from "../data/services";
+import {
+  Calendar,
+  ArrowUpFromLine,
+  Anchor,
+  ClipboardList,
+  Warehouse,
+  ShieldCheck,
+  Search,
+  Wrench,
+  CheckCircle,
+  PencilRuler,
+  Hammer,
+  Ship,
+} from "lucide-astro";
+
+const iconMap: Record<string, typeof Calendar> = {
+  calendar: Calendar,
+  "arrow-up-from-line": ArrowUpFromLine,
+  anchor: Anchor,
+  "clipboard-list": ClipboardList,
+  warehouse: Warehouse,
+  "shield-check": ShieldCheck,
+  search: Search,
+  wrench: Wrench,
+  "check-circle": CheckCircle,
+  "pencil-ruler": PencilRuler,
+  hammer: Hammer,
+  ship: Ship,
+};
+
+export interface Props {
+  locale: Locale;
+  heading: string;
+  steps: ProcessStep[];
+}
+
+const { locale, heading, steps } = Astro.props;
+---
+
+<section class="bg-deep text-foam">
+  <div class="mx-auto max-w-[1200px] px-6 py-20">
+    <h2 class="font-display text-center text-4xl font-semibold" data-reveal>
+      {heading}
+    </h2>
+
+    <ol class="mt-14 grid gap-10 md:grid-cols-3 md:gap-6">
+      {
+        steps.map((step, i) => {
+          const Icon = iconMap[step.icon] ?? Calendar;
+          return (
+            <li class="relative flex flex-col items-center text-center" data-reveal>
+              <div class="bg-teal text-foam flex h-16 w-16 items-center justify-center rounded-full">
+                <Icon class="h-7 w-7" />
+              </div>
+              <div class="font-display text-teal/70 mt-4 text-3xl font-bold">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <h3 class="font-display mt-2 text-xl font-semibold">{step.title[locale]}</h3>
+              <p class="text-foam/80 mt-3 max-w-xs text-sm leading-relaxed">
+                {step.description[locale]}
+              </p>
+            </li>
+          );
+        })
+      }
+    </ol>
+  </div>
+</section>

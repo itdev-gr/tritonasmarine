@@ -22,7 +22,7 @@ const locale = "en" as const;
         {t(locale, "about.heading")}
       </p>
       <h1 class="font-display mt-4 max-w-3xl text-5xl font-semibold sm:text-6xl" data-reveal>
-        Lorem ipsum dolor sit amet
+        {t(locale, "about.hero_title")}
       </h1>
     </div>
   </section>
@@ -38,19 +38,9 @@ const locale = "en" as const;
         />
       </div>
       <div class="text-navy/80 space-y-4" data-reveal>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus euismod arcu non ligula
-          rhoncus, at placerat sapien tincidunt.
-        </p>
-        <p>
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-          deserunt mollit anim id est laborum.
-        </p>
+        <p>{t(locale, "about.p1")}</p>
+        <p>{t(locale, "about.p2")}</p>
+        <p>{t(locale, "about.p3")}</p>
       </div>
     </div>
   </section>
