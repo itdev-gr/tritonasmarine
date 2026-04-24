@@ -138,7 +138,18 @@ function smoothAnchorScroll() {
   });
 }
 
+function handleHeroVideo() {
+  const video = document.querySelector<HTMLVideoElement>("[data-hero-video]");
+  if (!video) return;
+  if (prefersReducedMotion()) {
+    video.pause();
+    video.removeAttribute("autoplay");
+    video.currentTime = 0;
+  }
+}
+
 export function initAnimations() {
+  handleHeroVideo();
   if (prefersReducedMotion()) return;
   servicesGridStagger();
   scrollReveals();

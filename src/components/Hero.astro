@@ -10,14 +10,17 @@ const { locale } = Astro.props;
 
 <section class="bg-navy text-foam relative isolate overflow-hidden">
   <div class="absolute inset-0 -z-10">
-    <img
-      src="/images/hero-home.jpg"
-      alt=""
+    <video
+      src="/videos/hero-home.mp4"
+      poster="/images/hero-home.jpg"
       class="h-full w-full object-cover opacity-60"
-      data-hero-image
-      loading="eager"
-      fetchpriority="high"
-    />
+      data-hero-video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-hidden="true"></video>
     <div class="from-navy/60 via-navy/40 to-navy absolute inset-0 bg-gradient-to-b"></div>
   </div>
 
