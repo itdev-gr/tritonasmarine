@@ -53,5 +53,14 @@
   "booking.subtitle": "Tell us what you need and where your boat is. A technician will call you back within one business day.",
   "booking.submit": "Request booking",
   "form.location": "Location / marina",
-  "form.select_service": "Select a service"
+  "form.select_service": "Select a service",
+  "nav.community": "Community",
+  "breadcrumb.community": "Community",
+  "community.intro_title": "Rooted in Patmos",
+  "community.intro_p1": "Triton Marine operates from the harbor of Skala on the island of Patmos — one of the Dodecanese islands in the eastern Aegean, known for its centuries-old seafaring tradition and its UNESCO-protected monastic heritage.",
+  "community.intro_p2": "Our yard sits minutes from open water, with direct access to protected waters and the main ferry port. For visiting yachts it's a natural stop; for local boat owners it's home base year-round.",
+  "community.intro_p3": "Supporting the Patmian maritime community has been our purpose since day one: keeping the island's boats safe, serviceable, and sailing.",
+  "community.harbor_title": "A natural harbor",
+  "community.harbor_p1": "Skala's sheltered bay has served merchants and sailors for over two thousand years. Today it hosts a modest commercial port, a daily ferry line, and a seasonal marina.",
+  "community.harbor_p2": "The calm anchorage and year-round accessibility make Patmos one of the most reliable places in the eastern Aegean for boat maintenance and storage."
 }

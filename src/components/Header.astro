@@ -11,6 +11,7 @@ const { locale } = Astro.props;
 const nav = [
   { key: "nav.home", href: localizedPath(locale, "/") },
   { key: "nav.about", href: localizedPath(locale, "/about") },
+  { key: "nav.community", href: localizedPath(locale, "/community") },
   { key: "nav.services", href: localizedPath(locale, "/services") },
   { key: "nav.contact", href: localizedPath(locale, "/contact") },
 ] as const;

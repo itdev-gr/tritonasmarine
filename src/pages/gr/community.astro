@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PageHero from "../../components/PageHero.astro";
+import CtaSection from "../../components/CtaSection.astro";
+import { t } from "../../i18n/utils";
+
+const locale = "gr" as const;
+---
+
+<BaseLayout
+  locale={locale}
+  title="Κοινότητα — Triton Marine"
+  description="Η Triton Marine είναι ριζωμένη στη ναυτική κοινότητα της Πάτμου — στο λιμάνι της Σκάλας, στα Δωδεκάνησα, και στα σκάφη που την αποκαλούν σπίτι τους."
+>
+  <Header slot="header" locale={locale} />
+
+  <PageHero
+    locale={locale}
+    titleKey="nav.community"
+    backgroundImage="/images/about.jpg"
+    crumbs={[{ labelKey: "breadcrumb.home", href: "/" }, { labelKey: "breadcrumb.community" }]}
+  />
+
+  <section class="bg-foam">
+    <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-20 md:grid-cols-2 md:items-center">
+      <div class="overflow-hidden rounded-lg" data-reveal>
+        <img
+          src="/images/about.jpg"
+          alt="Λιμάνι Πάτμου"
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div class="space-y-4" data-reveal>
+        <h2 class="font-display text-navy text-3xl font-semibold sm:text-4xl">
+          {t(locale, "community.intro_title")}
+        </h2>
+        <p class="text-navy/80">{t(locale, "community.intro_p1")}</p>
+        <p class="text-navy/80">{t(locale, "community.intro_p2")}</p>
+        <p class="text-navy/80">{t(locale, "community.intro_p3")}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-navy text-foam">
+    <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-20 md:grid-cols-2 md:items-center">
+      <div class="space-y-4 md:order-2" data-reveal>
+        <h2 class="font-display text-3xl font-semibold sm:text-4xl">
+          {t(locale, "community.harbor_title")}
+        </h2>
+        <p class="text-foam/80">{t(locale, "community.harbor_p1")}</p>
+        <p class="text-foam/80">{t(locale, "community.harbor_p2")}</p>
+      </div>
+      <div class="overflow-hidden rounded-lg md:order-1" data-reveal>
+        <img
+          src="/images/hero-home.jpg"
+          alt="Λιμάνι Σκάλας και ναυπηγείο"
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <CtaSection locale={locale} />
+
+  <Footer slot="footer" locale={locale} />
+</BaseLayout>
