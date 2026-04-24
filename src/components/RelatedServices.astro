@@ -1,0 +1,59 @@
+---
+import type { Locale } from "../i18n/utils";
+import { t, localizedPath } from "../i18n/utils";
+import { services, type Service } from "../data/services";
+import { ArrowRight } from "lucide-astro";
+
+export interface Props {
+  locale: Locale;
+  currentSlug: string;
+}
+
+const { locale, currentSlug } = Astro.props;
+
+const related: Service[] = services.filter((s) => s.slug !== currentSlug).slice(0, 2);
+---
+
+<section class="bg-foam">
+  <div class="mx-auto max-w-[1200px] px-6 pt-10 pb-20">
+    <div class="flex flex-col items-center" data-reveal>
+      <h2 class="font-display text-navy text-center text-4xl font-semibold sm:text-5xl">
+        {t(locale, "related.heading")}
+      </h2>
+      <div class="bg-rust mt-5 h-1 w-16 rounded-full"></div>
+    </div>
+
+    <div class="mt-12 grid gap-8 md:grid-cols-2">
+      {
+        related.map((service) => (
+          <a
+            href={localizedPath(locale, `/services/${service.slug}`)}
+            class="group relative block overflow-hidden rounded-lg"
+            data-reveal
+          >
+            <img
+              src={service.heroImage}
+              alt=""
+              class="aspect-[5/3] h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="from-navy/95 via-navy/50 absolute inset-0 bg-gradient-to-t to-transparent" />
+            <div class="text-foam absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 sm:p-8">
+              <div>
+                <p class="text-teal text-xs font-semibold tracking-[0.2em] uppercase">
+                  {service.eyebrow[locale]}
+                </p>
+                <h3 class="font-display mt-2 text-2xl font-semibold sm:text-3xl">
+                  {service.name[locale]}
+                </h3>
+              </div>
+              <span class="bg-rust text-foam group-hover:bg-teal flex h-11 w-11 flex-none items-center justify-center rounded-full transition">
+                <ArrowRight class="h-5 w-5" />
+              </span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

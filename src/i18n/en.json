@@ -67,5 +67,9 @@
   "about.p1": "Triton Marine is a family-run boatyard in Skala, on the Greek island of Patmos. We haul, store, repair, and build boats — for the local fleet, for visiting yachts, and for owners who've trusted us with their vessels for years.",
   "about.p2": "Our team is small and senior: shipwrights, engine technicians, and marine electricians who grew up around the harbor. We know the waters, the weather, and the quirks of every type of boat that calls the Dodecanese home.",
   "about.p3": "We operate year-round. Summer is launches, emergency repairs, and small-job turnarounds; winter is haul-outs, full refits, and custom builds. Whatever season you find us in, the goal is the same: get your boat back in the water, safe and running right.",
-  "process.how_it_works": "How it works"
+  "process.how_it_works": "How it works",
+  "faq.heading": "Frequently Asked Questions",
+  "faq.intro": "Anything else you'd like to know? Send us a message — we read every enquiry and reply within one business day.",
+  "faq.cta": "Contact us",
+  "related.heading": "Related Services"
 }
