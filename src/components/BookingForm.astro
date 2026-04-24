@@ -44,25 +44,14 @@ const { locale } = Astro.props;
     </label>
   </div>
 
-  <div class="grid gap-4 md:grid-cols-2">
-    <label class="block">
-      <span class="text-navy mb-1 block text-sm font-medium">{t(locale, "form.phone")}</span>
-      <input
-        type="tel"
-        name="phone"
-        class="border-navy/20 bg-foam text-navy focus:border-teal focus:ring-teal/30 block w-full rounded-lg border px-4 py-3 transition focus:ring-2 focus:outline-none"
-      />
-    </label>
-    <label class="block">
-      <span class="text-navy mb-1 block text-sm font-medium">{t(locale, "form.location")}</span>
-      <input
-        type="text"
-        name="location"
-        required
-        class="border-navy/20 bg-foam text-navy focus:border-teal focus:ring-teal/30 block w-full rounded-lg border px-4 py-3 transition focus:ring-2 focus:outline-none"
-      />
-    </label>
-  </div>
+  <label class="block">
+    <span class="text-navy mb-1 block text-sm font-medium">{t(locale, "form.phone")}</span>
+    <input
+      type="tel"
+      name="phone"
+      class="border-navy/20 bg-foam text-navy focus:border-teal focus:ring-teal/30 block w-full rounded-lg border px-4 py-3 transition focus:ring-2 focus:outline-none"
+    />
+  </label>
 
   <label class="block">
     <span class="text-navy mb-1 block text-sm font-medium">{t(locale, "nav.services")}</span>
@@ -124,8 +113,6 @@ const { locale } = Astro.props;
       () => {
         const service =
           (form.querySelector('[name="service"]') as HTMLSelectElement | null)?.value ?? "";
-        const location =
-          (form.querySelector('[name="location"]') as HTMLInputElement | null)?.value ?? "";
         const phone =
           (form.querySelector('[name="phone"]') as HTMLInputElement | null)?.value ?? "";
         const subject = form.querySelector<HTMLInputElement>("[data-booking-subject]");
@@ -134,7 +121,6 @@ const { locale } = Astro.props;
         if (message) {
           message.value = [
             `Service: ${service || "(not selected)"}`,
-            `Location: ${location || "(not provided)"}`,
             `Phone: ${phone || "(not provided)"}`,
           ].join("\n");
         }

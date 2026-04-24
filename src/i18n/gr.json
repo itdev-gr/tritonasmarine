@@ -71,5 +71,17 @@
   "faq.heading": "Συχνές Ερωτήσεις",
   "faq.intro": "Θέλετε να μάθετε κάτι άλλο; Στείλτε μας μήνυμα — διαβάζουμε κάθε αίτημα και απαντάμε εντός μίας εργάσιμης ημέρας.",
   "faq.cta": "Επικοινωνία",
-  "related.heading": "Σχετικές Υπηρεσίες"
+  "related.heading": "Σχετικές Υπηρεσίες",
+  "contact.info_title": "Επικοινωνήστε μαζί μας",
+  "contact.info_subtitle": "Ο πιο εύκολος τρόπος να μας βρείτε είναι η φόρμα παρακάτω — ή χρησιμοποιήστε οποιοδήποτε από τα παρακάτω κανάλια.",
+  "contact.address_full_line1": "Λιμάνι Σκάλας",
+  "contact.address_full_line2": "85500 Πάτμος, Ελλάδα",
+  "contact.directions_cta": "Οδηγίες",
+  "contact.hours_title": "Ώρες λειτουργίας",
+  "contact.hours_weekdays": "Δευ – Παρ: 08:00 – 18:00",
+  "contact.hours_saturday": "Σάβ: 09:00 – 14:00",
+  "contact.hours_sunday": "Κυρ: Κλειστά",
+  "contact.map_heading": "Βρείτε το ναυπηγείο",
+  "contact.map_aria": "Χάρτης Triton Marine, λιμάνι Σκάλας, Πάτμος",
+  "contact.form_heading": "Στείλτε μας μήνυμα"
 }

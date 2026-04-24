@@ -11,8 +11,7 @@ const { locale } = Astro.props;
 <section class="bg-navy text-foam relative isolate overflow-hidden">
   <div class="absolute inset-0 -z-10">
     <video
-      src="/videos/hero-home.mp4"
-      poster="/images/hero-home.jpg"
+      poster="/images/hero-home.webp"
       class="h-full w-full object-cover opacity-60"
       data-hero-video
       autoplay
@@ -20,7 +19,10 @@ const { locale } = Astro.props;
       loop
       playsinline
       preload="metadata"
-      aria-hidden="true"></video>
+      aria-hidden="true">
+      <source src="/videos/hero-home.webm" type="video/webm" />
+      <source src="/videos/hero-home.mp4" type="video/mp4" />
+    </video>
     <div class="from-navy/60 via-navy/40 to-navy absolute inset-0 bg-gradient-to-b"></div>
   </div>
 

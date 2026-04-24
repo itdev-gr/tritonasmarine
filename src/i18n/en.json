@@ -71,5 +71,17 @@
   "faq.heading": "Frequently Asked Questions",
   "faq.intro": "Anything else you'd like to know? Send us a message — we read every enquiry and reply within one business day.",
   "faq.cta": "Contact us",
-  "related.heading": "Related Services"
+  "related.heading": "Related Services",
+  "contact.info_title": "Get in touch",
+  "contact.info_subtitle": "The easiest way to reach us is the form below — or use any of the channels below.",
+  "contact.address_full_line1": "Skala Harbor",
+  "contact.address_full_line2": "85500 Patmos, Greece",
+  "contact.directions_cta": "Get directions",
+  "contact.hours_title": "Opening hours",
+  "contact.hours_weekdays": "Mon – Fri: 08:00 – 18:00",
+  "contact.hours_saturday": "Sat: 09:00 – 14:00",
+  "contact.hours_sunday": "Sun: Closed",
+  "contact.map_heading": "Find the yard",
+  "contact.map_aria": "Map of Triton Marine, Skala harbor, Patmos",
+  "contact.form_heading": "Send us a message"
 }

@@ -2,63 +2,170 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import PageHero from "../../components/PageHero.astro";
 import ContactForm from "../../components/ContactForm.astro";
-import { t } from "../../i18n/utils";
 import LocalBusinessSchema from "../../components/LocalBusinessSchema.astro";
+import { t } from "../../i18n/utils";
+import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-astro";
 
 const locale = "gr" as const;
+
+const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=Skala+Patmos+Greece";
+const phoneHref = "tel:+300000000000";
+const phoneDisplay = "+30 000 000 0000";
+const emailHref = "mailto:info@tritonasmarine.gr";
+const emailDisplay = "info@tritonasmarine.gr";
 ---
 
 <BaseLayout
   locale={locale}
   title="Επικοινωνία — Triton Marine"
-  description="Επικοινωνήστε με την Triton Marine — ζητήστε προσφορά ή κάντε μια ερώτηση."
+  description="Επικοινωνήστε με την Triton Marine — ζητήστε προσφορά ή κάντε μια ερώτηση. Λιμάνι Σκάλας, Πάτμος, Ελλάδα."
 >
   <LocalBusinessSchema slot="head" locale={locale} />
   <Header slot="header" locale={locale} />
 
-  <section class="bg-navy text-foam">
-    <div class="mx-auto max-w-[1200px] px-6 py-24">
-      <p class="text-teal text-xs font-semibold tracking-[0.2em] uppercase" data-reveal>
-        {t(locale, "contact.heading")}
-      </p>
-      <h1 class="font-display mt-4 max-w-3xl text-5xl font-semibold sm:text-6xl" data-reveal>
-        {t(locale, "contact.subheading")}
-      </h1>
+  <PageHero
+    locale={locale}
+    titleKey="nav.contact"
+    backgroundImage="/images/hero-home.webp"
+    crumbs={[{ labelKey: "breadcrumb.home", href: "/" }, { labelKey: "nav.contact" }]}
+  />
+
+  <section class="bg-foam">
+    <div class="mx-auto max-w-[1200px] px-6 py-16">
+      <div class="max-w-2xl" data-reveal>
+        <p class="text-teal text-xs font-semibold tracking-[0.2em] uppercase">
+          {t(locale, "contact.heading")}
+        </p>
+        <h2 class="font-display text-navy mt-3 text-3xl font-semibold sm:text-4xl">
+          {t(locale, "contact.info_title")}
+        </h2>
+        <p class="text-navy/75 mt-4">{t(locale, "contact.info_subtitle")}</p>
+      </div>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        <article
+          class="border-navy/10 bg-foam flex flex-col rounded-lg border p-6 transition hover:-translate-y-1 hover:shadow-lg"
+          data-reveal
+        >
+          <div
+            class="bg-rust/10 text-rust flex h-12 w-12 items-center justify-center rounded-lg"
+          >
+            <MapPin class="h-6 w-6" />
+          </div>
+          <h3 class="font-display text-navy mt-5 text-lg font-semibold">
+            {t(locale, "footer.address_label")}
+          </h3>
+          <p class="text-navy/70 mt-2 text-sm">
+            {t(locale, "contact.address_full_line1")}<br />
+            {t(locale, "contact.address_full_line2")}
+          </p>
+          <a
+            href={directionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-teal hover:text-navy mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold"
+          >
+            {t(locale, "contact.directions_cta")}
+            <ArrowRight class="h-4 w-4" />
+          </a>
+        </article>
+
+        <article
+          class="border-navy/10 bg-foam flex flex-col rounded-lg border p-6 transition hover:-translate-y-1 hover:shadow-lg"
+          data-reveal
+        >
+          <div
+            class="bg-rust/10 text-rust flex h-12 w-12 items-center justify-center rounded-lg"
+          >
+            <Phone class="h-6 w-6" />
+          </div>
+          <h3 class="font-display text-navy mt-5 text-lg font-semibold">
+            {t(locale, "footer.phone_label")}
+          </h3>
+          <p class="text-navy/70 mt-2 text-sm">{phoneDisplay}</p>
+          <a
+            href={phoneHref}
+            class="text-teal hover:text-navy mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold"
+          >
+            {phoneDisplay}
+            <ArrowRight class="h-4 w-4" />
+          </a>
+        </article>
+
+        <article
+          class="border-navy/10 bg-foam flex flex-col rounded-lg border p-6 transition hover:-translate-y-1 hover:shadow-lg"
+          data-reveal
+        >
+          <div
+            class="bg-rust/10 text-rust flex h-12 w-12 items-center justify-center rounded-lg"
+          >
+            <Mail class="h-6 w-6" />
+          </div>
+          <h3 class="font-display text-navy mt-5 text-lg font-semibold">
+            {t(locale, "footer.email_label")}
+          </h3>
+          <p class="text-navy/70 mt-2 break-all text-sm">{emailDisplay}</p>
+          <a
+            href={emailHref}
+            class="text-teal hover:text-navy mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold"
+          >
+            {t(locale, "footer.email_label")}
+            <ArrowRight class="h-4 w-4" />
+          </a>
+        </article>
+      </div>
+
+      <div
+        class="border-navy/10 bg-deep text-foam mt-10 flex flex-col items-start gap-5 rounded-lg border p-8 sm:flex-row sm:items-center sm:gap-8"
+        data-reveal
+      >
+        <div class="bg-teal text-foam flex h-14 w-14 flex-none items-center justify-center rounded-lg">
+          <Clock class="h-7 w-7" />
+        </div>
+        <div>
+          <h3 class="font-display text-xl font-semibold">{t(locale, "contact.hours_title")}</h3>
+          <p class="text-foam/80 mt-2 text-sm">
+            {t(locale, "contact.hours_weekdays")}<br />
+            {t(locale, "contact.hours_saturday")}<br />
+            {t(locale, "contact.hours_sunday")}
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="bg-foam">
-    <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-20 md:grid-cols-[2fr_1fr]">
+    <div class="mx-auto grid max-w-[1200px] gap-10 px-6 pb-20 md:grid-cols-[3fr_4fr] md:gap-12">
       <div data-reveal>
-        <ContactForm locale={locale} />
+        <h2 class="font-display text-navy text-3xl font-semibold sm:text-4xl">
+          {t(locale, "contact.map_heading")}
+        </h2>
+        <div class="bg-rust mt-5 h-1 w-16 rounded-full"></div>
+        <div class="border-navy/10 mt-8 aspect-[4/3] w-full overflow-hidden rounded-lg border">
+          <iframe
+            src="https://www.google.com/maps?q=Skala+Patmos+Greece&output=embed"
+            title={t(locale, "contact.map_aria")}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="h-full w-full border-0"
+            allowfullscreen></iframe>
+        </div>
       </div>
-      <aside class="text-navy/80 space-y-6 text-sm" data-reveal>
-        <div>
-          <h2 class="text-navy/60 text-xs font-semibold tracking-wide uppercase">
-            {t(locale, "footer.address_label")}
-          </h2>
-          <p class="mt-2">Placeholder διεύθυνση<br />Placeholder πόλη, Ελλάδα</p>
+
+      <div
+        class="border-navy/10 bg-foam h-fit rounded-lg border p-6 sm:p-8"
+        data-reveal
+      >
+        <h2 class="font-display text-navy text-3xl font-semibold sm:text-4xl">
+          {t(locale, "contact.form_heading")}
+        </h2>
+        <div class="bg-rust mt-5 h-1 w-16 rounded-full"></div>
+        <div class="mt-8">
+          <ContactForm locale={locale} />
         </div>
-        <div>
-          <h2 class="text-navy/60 text-xs font-semibold tracking-wide uppercase">
-            {t(locale, "footer.phone_label")}
-          </h2>
-          <p class="mt-2">
-            <a href="tel:+300000000000" class="hover:text-teal">+30 000 000 0000</a>
-          </p>
-        </div>
-        <div>
-          <h2 class="text-navy/60 text-xs font-semibold tracking-wide uppercase">
-            {t(locale, "footer.email_label")}
-          </h2>
-          <p class="mt-2">
-            <a href="mailto:info@tritonasmarine.gr" class="hover:text-teal"
-              >info@tritonasmarine.gr</a
-            >
-          </p>
-        </div>
-      </aside>
+      </div>
     </div>
   </section>
 

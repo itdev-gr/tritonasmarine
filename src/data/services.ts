@@ -31,7 +31,7 @@ export const services: Service[] = [
   {
     slug: "haul-out-launch",
     icon: "arrow-up-down",
-    heroImage: "/images/engine-service.jpg",
+    heroImage: "/images/engine-service.webp",
     name: {
       en: "Haul-out & launch",
       gr: "Ανέλκυση – Καθέλκυση σκαφών",
@@ -58,7 +58,7 @@ export const services: Service[] = [
         gr: "Κάθε ανέλκυση προγραμματίζεται με βάση τον καιρό και τα δρομολόγια των πλοίων, ώστε το σκάφος σας να είναι εκτός νερού για όσο το δυνατόν λιγότερο.",
       },
     ],
-    galleryImages: ["/images/hero-home.jpg", "/images/general-repair.jpg"],
+    galleryImages: ["/images/hero-home.webp", "/images/general-repair.webp"],
     processSteps: [
       {
         icon: "calendar",
@@ -150,7 +150,7 @@ export const services: Service[] = [
   {
     slug: "parking-storage",
     icon: "warehouse",
-    heroImage: "/images/winterization.jpg",
+    heroImage: "/images/winterization.webp",
     name: {
       en: "Parking & winter storage",
       gr: "Parking & Διαχειμαστήριο",
@@ -177,7 +177,7 @@ export const services: Service[] = [
         gr: "Διαθέσιμη βραχυχρόνια φύλαξη και μακροχρόνιος διαχειμασμός. Μπορούμε να ξεκινήσουμε σέρβις ή συντήρηση κατά τη διάρκεια της φύλαξης, ώστε το σκάφος να είναι έτοιμο για την επόμενη φορά που θα έρθετε.",
       },
     ],
-    galleryImages: ["/images/inspection.jpg", "/images/electronics.jpg"],
+    galleryImages: ["/images/inspection.webp", "/images/electronics.webp"],
     processSteps: [
       {
         icon: "clipboard-list",
@@ -269,7 +269,7 @@ export const services: Service[] = [
   {
     slug: "repairs",
     icon: "wrench",
-    heroImage: "/images/general-repair.jpg",
+    heroImage: "/images/general-repair.webp",
     name: {
       en: "Repairs",
       gr: "Επισκευές",
@@ -296,7 +296,7 @@ export const services: Service[] = [
         gr: "Για επείγουσες εργασίες σε σκάφη που επισκέπτονται το νησί, κρατάμε ειδικές θέσεις κάθε καλοκαιρινή εβδομάδα. Οι περισσότερες βλάβες διαγιγνώσκονται εντός 24 ωρών από την άφιξη στο ναυπηγείο.",
       },
     ],
-    galleryImages: ["/images/engine-service.jpg", "/images/electronics.jpg"],
+    galleryImages: ["/images/engine-service.webp", "/images/electronics.webp"],
     processSteps: [
       {
         icon: "search",
@@ -388,7 +388,7 @@ export const services: Service[] = [
   {
     slug: "construction",
     icon: "hammer",
-    heroImage: "/images/hull-cleaning.jpg",
+    heroImage: "/images/hull-cleaning.webp",
     name: {
       en: "Construction",
       gr: "Κατασκευές",
@@ -415,7 +415,7 @@ export const services: Service[] = [
         gr: "Κάθε έργο ξεκινά με μια συζήτηση. Για ποιον σκοπό προορίζεται το σκάφος, ποιος ο προϋπολογισμός, και πότε πρέπει να παραδοθεί; Από εκεί προχωρούμε σε σχεδιαστική πρόταση και κλιμακωτό πλάνο κατασκευής — χωρίς καμία δέσμευση μέχρι να είστε ικανοποιημένοι και με τα δύο.",
       },
     ],
-    galleryImages: ["/images/winterization.jpg", "/images/about.jpg"],
+    galleryImages: ["/images/winterization.webp", "/images/about.webp"],
     processSteps: [
       {
         icon: "pencil-ruler",
