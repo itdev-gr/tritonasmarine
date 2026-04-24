@@ -13,12 +13,12 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "engine-service",
-    icon: "wrench",
+    slug: "haul-out-launch",
+    icon: "arrow-up-down",
     heroImage: "/images/engine-service.jpg",
     name: {
-      en: "Engine service",
-      gr: "Συντήρηση κινητήρα",
+      en: "Haul-out & launch",
+      gr: "Ανέλκυση – Καθέλκυση σκαφών",
     },
     shortDescription: {
       en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -30,12 +30,12 @@ export const services: Service[] = [
     },
   },
   {
-    slug: "hull-cleaning",
-    icon: "droplets",
-    heroImage: "/images/hull-cleaning.jpg",
+    slug: "parking-storage",
+    icon: "warehouse",
+    heroImage: "/images/winterization.jpg",
     name: {
-      en: "Hull cleaning",
-      gr: "Καθαρισμός γάστρας",
+      en: "Parking & winter storage",
+      gr: "Parking & Διαχειμαστήριο",
     },
     shortDescription: {
       en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -47,29 +47,29 @@ export const services: Service[] = [
     },
   },
   {
-    slug: "winterization",
-    icon: "snowflake",
-    heroImage: "/images/winterization.jpg",
+    slug: "repairs",
+    icon: "wrench",
+    heroImage: "/images/general-repair.jpg",
     name: {
-      en: "Winterization",
-      gr: "Χειμερινή προετοιμασία",
+      en: "Repairs",
+      gr: "Επισκευές",
     },
     shortDescription: {
       en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       gr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
     longDescription: {
-      en: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
-      gr: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+      en: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      gr: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
   },
   {
-    slug: "electronics",
-    icon: "radio",
-    heroImage: "/images/electronics.jpg",
+    slug: "construction",
+    icon: "hammer",
+    heroImage: "/images/hull-cleaning.jpg",
     name: {
-      en: "Marine electronics",
-      gr: "Ναυτικά ηλεκτρονικά",
+      en: "Construction",
+      gr: "Κατασκευές",
     },
     shortDescription: {
       en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -78,40 +78,6 @@ export const services: Service[] = [
     longDescription: {
       en: "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.",
       gr: "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.",
-    },
-  },
-  {
-    slug: "general-repair",
-    icon: "hammer",
-    heroImage: "/images/general-repair.jpg",
-    name: {
-      en: "General repair",
-      gr: "Γενικές επισκευές",
-    },
-    shortDescription: {
-      en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      gr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    longDescription: {
-      en: "Integer in sapien. Fusce tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam posuere.",
-      gr: "Integer in sapien. Fusce tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam posuere.",
-    },
-  },
-  {
-    slug: "inspection",
-    icon: "clipboard-check",
-    heroImage: "/images/inspection.jpg",
-    name: {
-      en: "Inspection & survey",
-      gr: "Επιθεώρηση",
-    },
-    shortDescription: {
-      en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      gr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    longDescription: {
-      en: "Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.",
-      gr: "Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.",
     },
   },
 ];

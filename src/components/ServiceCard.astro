@@ -2,15 +2,13 @@
 import type { Locale } from "../i18n/utils";
 import { t, localizedPath } from "../i18n/utils";
 import type { Service } from "../data/services";
-import { Wrench, Droplets, Snowflake, Radio, Hammer, ClipboardCheck } from "lucide-astro";
+import { ArrowUpDown, Warehouse, Wrench, Hammer } from "lucide-astro";
 
 const iconMap: Record<string, typeof Wrench> = {
+  "arrow-up-down": ArrowUpDown,
+  warehouse: Warehouse,
   wrench: Wrench,
-  droplets: Droplets,
-  snowflake: Snowflake,
-  radio: Radio,
   hammer: Hammer,
-  "clipboard-check": ClipboardCheck,
 };
 
 export interface Props {
