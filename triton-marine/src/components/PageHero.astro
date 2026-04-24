@@ -1,0 +1,53 @@
+---
+import type { Locale } from "../i18n/utils";
+import { t, localizedPath } from "../i18n/utils";
+import { ChevronRight } from "lucide-astro";
+
+export interface Props {
+  locale: Locale;
+  titleKey: keyof typeof import("../i18n/en.json");
+  backgroundImage: string;
+  crumbs: { labelKey: keyof typeof import("../i18n/en.json"); href?: string }[];
+}
+
+const { locale, titleKey, backgroundImage, crumbs } = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <img
+      src={backgroundImage}
+      alt=""
+      class="h-full w-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="from-navy/80 via-navy/70 to-navy/80 absolute inset-0 bg-gradient-to-b"></div>
+  </div>
+
+  <div class="mx-auto max-w-[1200px] px-6 py-28 text-foam">
+    <h1
+      class="font-display text-5xl font-semibold tracking-tight sm:text-6xl md:text-7xl"
+      data-reveal
+    >
+      {t(locale, titleKey)}
+    </h1>
+
+    <nav class="mt-6 flex flex-wrap items-center gap-2 text-sm" aria-label="Breadcrumb" data-reveal>
+      {
+        crumbs.map((crumb, i) => (
+          <>
+            {i > 0 && <ChevronRight class="h-4 w-4 text-foam/50" aria-hidden="true" />}
+            {crumb.href ? (
+              <a href={localizedPath(locale, crumb.href)} class="text-foam/70 hover:text-teal">
+                {t(locale, crumb.labelKey)}
+              </a>
+            ) : (
+              <span class="text-teal font-medium">{t(locale, crumb.labelKey)}</span>
+            )}
+          </>
+        ))
+      }
+    </nav>
+  </div>
+</section>
