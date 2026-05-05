@@ -58,7 +58,7 @@ export const services: Service[] = [
         gr: "Κάθε ανέλκυση προγραμματίζεται με βάση τον καιρό και τα δρομολόγια των πλοίων, ώστε το σκάφος σας να είναι εκτός νερού για όσο το δυνατόν λιγότερο.",
       },
     ],
-    galleryImages: ["/images/hero-home.webp", "/images/general-repair.webp"],
+    galleryImages: ["/images/services/haul-out-1.jpg", "/images/services/haul-out-2.jpg"],
     processSteps: [
       {
         icon: "calendar",
@@ -177,7 +177,7 @@ export const services: Service[] = [
         gr: "Διαθέσιμη βραχυχρόνια φύλαξη και μακροχρόνιος διαχειμασμός. Μπορούμε να ξεκινήσουμε σέρβις ή συντήρηση κατά τη διάρκεια της φύλαξης, ώστε το σκάφος να είναι έτοιμο για την επόμενη φορά που θα έρθετε.",
       },
     ],
-    galleryImages: ["/images/inspection.webp", "/images/electronics.webp"],
+    galleryImages: ["/images/services/storage-1.jpg", "/images/services/storage-2.jpg"],
     processSteps: [
       {
         icon: "clipboard-list",
@@ -296,7 +296,7 @@ export const services: Service[] = [
         gr: "Για επείγουσες εργασίες σε σκάφη που επισκέπτονται το νησί, κρατάμε ειδικές θέσεις κάθε καλοκαιρινή εβδομάδα. Οι περισσότερες βλάβες διαγιγνώσκονται εντός 24 ωρών από την άφιξη στο ναυπηγείο.",
       },
     ],
-    galleryImages: ["/images/engine-service.webp", "/images/electronics.webp"],
+    galleryImages: ["/images/services/repairs-1.jpg", "/images/services/repairs-2.jpg"],
     processSteps: [
       {
         icon: "search",
@@ -415,7 +415,7 @@ export const services: Service[] = [
         gr: "Κάθε έργο ξεκινά με μια συζήτηση. Για ποιον σκοπό προορίζεται το σκάφος, ποιος ο προϋπολογισμός, και πότε πρέπει να παραδοθεί; Από εκεί προχωρούμε σε σχεδιαστική πρόταση και κλιμακωτό πλάνο κατασκευής — χωρίς καμία δέσμευση μέχρι να είστε ικανοποιημένοι και με τα δύο.",
       },
     ],
-    galleryImages: ["/images/winterization.webp", "/images/about.webp"],
+    galleryImages: ["/images/services/construction-1.jpg", "/images/services/construction-2.jpg"],
     processSteps: [
       {
         icon: "pencil-ruler",
