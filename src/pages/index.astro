@@ -3,12 +3,38 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
-import ServicesGrid from "../components/ServicesGrid.astro";
-import StatsBar from "../components/StatsBar.astro";
 import CtaSection from "../components/CtaSection.astro";
 import LocalBusinessSchema from "../components/LocalBusinessSchema.astro";
+import StatsBar from "../components/StatsBar.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import { services } from "../data/services";
+import { t, localizedPath } from "../i18n/utils";
+import { ClipboardList, FileText, Wrench, ShipWheel } from "lucide-astro";
 
 const locale = "en" as const;
+
+const homeProcess = [
+  {
+    Icon: ClipboardList,
+    titleKey: "home.process_step1_title",
+    bodyKey: "home.process_step1_body",
+  },
+  {
+    Icon: FileText,
+    titleKey: "home.process_step2_title",
+    bodyKey: "home.process_step2_body",
+  },
+  {
+    Icon: Wrench,
+    titleKey: "home.process_step3_title",
+    bodyKey: "home.process_step3_body",
+  },
+  {
+    Icon: ShipWheel,
+    titleKey: "home.process_step4_title",
+    bodyKey: "home.process_step4_body",
+  },
+] as const;
 ---
 
 <BaseLayout
@@ -19,7 +45,115 @@ const locale = "en" as const;
   <LocalBusinessSchema slot="head" locale={locale} />
   <Header slot="header" locale={locale} />
   <Hero locale={locale} />
-  <ServicesGrid locale={locale} />
+
+  <!-- Section 1 — Promise: centered editorial -->
+  <section class="bg-foam">
+    <div class="mx-auto max-w-[760px] px-6 py-24 text-center">
+      <p class="text-teal text-xs font-semibold tracking-[0.22em] uppercase" data-reveal>
+        {t(locale, "home.promise_eyebrow")}
+      </p>
+      <h2
+        class="font-display text-navy mt-6 text-4xl leading-tight font-semibold sm:text-5xl"
+        data-reveal
+      >
+        {t(locale, "home.promise_title")}
+      </h2>
+      <p class="text-navy/80 mx-auto mt-7 max-w-[620px] text-lg leading-relaxed" data-reveal>
+        {t(locale, "home.promise_p1")}
+      </p>
+      <p class="text-navy/70 mx-auto mt-4 max-w-[620px]" data-reveal>
+        {t(locale, "home.promise_p2")}
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2 — Services: split with image + cards on navy -->
+  <section class="bg-navy text-foam">
+    <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-24 md:grid-cols-12 md:items-center">
+      <div class="md:col-span-5" data-reveal>
+        <p class="text-teal text-xs font-semibold tracking-[0.22em] uppercase">
+          {t(locale, "home.services_eyebrow")}
+        </p>
+        <h2 class="font-display mt-4 text-3xl font-semibold sm:text-4xl">
+          {t(locale, "home.services_title")}
+        </h2>
+        <p class="text-foam/80 mt-4 max-w-[460px]">{t(locale, "home.services_lead")}</p>
+        <a
+          href={localizedPath(locale, "/services")}
+          class="border-foam/40 text-foam hover:bg-foam hover:text-navy mt-8 inline-block rounded-lg border px-5 py-2.5 text-sm font-semibold transition"
+        >
+          {t(locale, "home.services_cta")} →
+        </a>
+      </div>
+      <div class="grid gap-4 md:col-span-7 sm:grid-cols-2" data-services-grid>
+        {services.map((service) => <ServiceCard service={service} locale={locale} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 — Process: 4-step horizontal timeline on deep -->
+  <section class="bg-deep text-foam">
+    <div class="mx-auto max-w-[1200px] px-6 py-24">
+      <div class="max-w-[640px]" data-reveal>
+        <p class="text-teal text-xs font-semibold tracking-[0.22em] uppercase">
+          {t(locale, "home.process_eyebrow")}
+        </p>
+        <h2 class="font-display mt-4 text-3xl font-semibold sm:text-4xl">
+          {t(locale, "home.process_title")}
+        </h2>
+      </div>
+      <ol class="mt-14 grid gap-10 md:grid-cols-4 md:gap-6">
+        {
+          homeProcess.map((step, i) => {
+            const Icon = step.Icon;
+            return (
+              <li class="flex flex-col" data-reveal>
+                <div class="bg-teal/15 text-teal flex h-12 w-12 items-center justify-center rounded-lg">
+                  <Icon class="h-6 w-6" />
+                </div>
+                <span class="font-display text-teal/70 mt-5 text-2xl font-bold">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 class="font-display mt-1 text-xl font-semibold">
+                  {t(locale, step.titleKey)}
+                </h3>
+                <p class="text-foam/75 mt-3 text-sm leading-relaxed">
+                  {t(locale, step.bodyKey)}
+                </p>
+              </li>
+            );
+          })
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Section 4 — Proof: sand band with quote + stats below -->
+  <section class="bg-sand">
+    <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-24 md:grid-cols-2 md:items-center">
+      <div data-reveal>
+        <p class="text-teal text-xs font-semibold tracking-[0.22em] uppercase">
+          {t(locale, "home.proof_eyebrow")}
+        </p>
+        <h2 class="font-display text-navy mt-4 text-3xl font-semibold sm:text-4xl">
+          {t(locale, "home.proof_title")}
+        </h2>
+        <p class="text-navy/80 mt-4 max-w-[520px]">{t(locale, "home.proof_body")}</p>
+      </div>
+      <figure
+        class="bg-foam border-navy/10 rounded-lg border p-8 shadow-sm"
+        data-reveal
+      >
+        <blockquote class="font-display text-navy text-xl leading-relaxed sm:text-2xl">
+          {t(locale, "home.proof_quote")}
+        </blockquote>
+        <figcaption class="text-navy/60 mt-6 text-sm font-medium">
+          {t(locale, "home.proof_quote_author")}
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <StatsBar locale={locale} />
   <CtaSection locale={locale} />
   <Footer slot="footer" locale={locale} />

@@ -4,15 +4,52 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import PageHero from "../../components/PageHero.astro";
 import CtaSection from "../../components/CtaSection.astro";
-import { t } from "../../i18n/utils";
+import { t, localizedPath } from "../../i18n/utils";
+import { Hammer, Ship, Wrench, ShieldCheck, Check } from "lucide-astro";
 
 const locale = "gr" as const;
+
+const phases = [
+  {
+    img: "/images/community/phase-onboarding.jpg",
+    titleKey: "community.scholarship.phase1_title",
+    monthsKey: "community.scholarship.phase1_months",
+    bodyKey: "community.scholarship.phase1_body",
+  },
+  {
+    img: "/images/community/phase-handtools.jpg",
+    titleKey: "community.scholarship.phase2_title",
+    monthsKey: "community.scholarship.phase2_months",
+    bodyKey: "community.scholarship.phase2_body",
+  },
+  {
+    img: "/images/community/phase-hull.jpg",
+    titleKey: "community.scholarship.phase3_title",
+    monthsKey: "community.scholarship.phase3_months",
+    bodyKey: "community.scholarship.phase3_body",
+  },
+  {
+    img: "/images/community/phase-seatrials.jpg",
+    titleKey: "community.scholarship.phase4_title",
+    monthsKey: "community.scholarship.phase4_months",
+    bodyKey: "community.scholarship.phase4_body",
+  },
+] as const;
+
+const eligibility = [
+  "community.scholarship.eligibility_1",
+  "community.scholarship.eligibility_2",
+  "community.scholarship.eligibility_3",
+  "community.scholarship.eligibility_4",
+  "community.scholarship.eligibility_5",
+  "community.scholarship.eligibility_6",
+] as const;
 ---
 
 <BaseLayout
   locale={locale}
   title="Κοινότητα — Triton Marine"
-  description="Η Triton Marine είναι ριζωμένη στη ναυτική κοινότητα της Πάτμου — στο λιμάνι της Σκάλας, στα Δωδεκάνησα, και στα σκάφη που την αποκαλούν σπίτι τους."
+  description="Η Triton Marine ανοίγει κάθε χρόνο αμειβόμενες υποτροφίες για νέους ναυπηγούς — μάθετε ναυπηγική και επισκευή σκαφών στο λιμάνι της Πάτμου."
 >
   <Header slot="header" locale={locale} />
 
@@ -23,43 +60,199 @@ const locale = "gr" as const;
     crumbs={[{ labelKey: "breadcrumb.home", href: "/" }, { labelKey: "breadcrumb.community" }]}
   />
 
+  <!-- Section 1 — Open Call -->
   <section class="bg-foam">
-    <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-20 md:grid-cols-2 md:items-center">
-      <div class="overflow-hidden rounded-lg" data-reveal>
+    <div class="mx-auto max-w-[760px] px-6 py-24 text-center">
+      <p
+        class="text-teal text-xs font-semibold tracking-[0.22em] uppercase"
+        data-reveal
+      >
+        {t(locale, "community.scholarship.eyebrow")}
+      </p>
+      <h2
+        class="font-display text-navy mt-6 text-4xl leading-tight font-semibold sm:text-5xl md:text-6xl"
+        data-reveal
+      >
+        {t(locale, "community.scholarship.headline")}
+      </h2>
+      <p class="text-navy/80 mx-auto mt-7 max-w-[620px] text-lg leading-relaxed" data-reveal>
+        {t(locale, "community.scholarship.lead_p1")}
+      </p>
+      <p class="text-navy/70 mx-auto mt-4 max-w-[620px]" data-reveal>
+        {t(locale, "community.scholarship.lead_p2")}
+      </p>
+      <ul
+        class="mt-10 flex flex-wrap items-center justify-center gap-2.5 text-xs"
+        data-reveal
+      >
+        <li class="border-navy/15 text-navy/80 rounded-full border px-4 py-1.5">
+          {t(locale, "community.scholarship.chip1")}
+        </li>
+        <li class="border-navy/15 text-navy/80 rounded-full border px-4 py-1.5">
+          {t(locale, "community.scholarship.chip2")}
+        </li>
+        <li class="border-navy/15 text-navy/80 rounded-full border px-4 py-1.5">
+          {t(locale, "community.scholarship.chip3")}
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section 2 — Why we open the door -->
+  <section class="bg-navy text-foam">
+    <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-24 md:grid-cols-12 md:items-center">
+      <div class="overflow-hidden rounded-lg md:col-span-5" data-reveal>
         <img
-          src="/images/about.webp"
-          alt="Λιμάνι Πάτμου"
-          class="h-full w-full object-cover"
+          src="/images/community/craft-hands.jpg"
+          alt="Ξύλινες πλάνες πάνω σε πάγκο, με ροκανίδια"
+          class="aspect-[4/5] h-full w-full object-cover"
           loading="lazy"
         />
       </div>
-      <div class="space-y-4" data-reveal>
-        <h2 class="font-display text-navy text-3xl font-semibold sm:text-4xl">
-          {t(locale, "community.intro_title")}
+      <div class="md:col-span-7" data-reveal>
+        <h2 class="font-display text-3xl font-semibold sm:text-4xl">
+          {t(locale, "community.scholarship.why_title")}
         </h2>
-        <p class="text-navy/80">{t(locale, "community.intro_p1")}</p>
-        <p class="text-navy/80">{t(locale, "community.intro_p2")}</p>
-        <p class="text-navy/80">{t(locale, "community.intro_p3")}</p>
+        <p class="text-foam/80 mt-4 max-w-[560px]">
+          {t(locale, "community.scholarship.why_lead")}
+        </p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2">
+          <div class="border-foam/10 rounded-lg border p-5">
+            <Hammer class="text-teal h-6 w-6" />
+            <h3 class="font-display mt-3 text-lg font-semibold">
+              {t(locale, "community.scholarship.why_card1_title")}
+            </h3>
+            <p class="text-foam/70 mt-2 text-sm leading-relaxed">
+              {t(locale, "community.scholarship.why_card1_body")}
+            </p>
+          </div>
+          <div class="border-foam/10 rounded-lg border p-5">
+            <Wrench class="text-teal h-6 w-6" />
+            <h3 class="font-display mt-3 text-lg font-semibold">
+              {t(locale, "community.scholarship.why_card2_title")}
+            </h3>
+            <p class="text-foam/70 mt-2 text-sm leading-relaxed">
+              {t(locale, "community.scholarship.why_card2_body")}
+            </p>
+          </div>
+          <div class="border-foam/10 rounded-lg border p-5">
+            <ShieldCheck class="text-teal h-6 w-6" />
+            <h3 class="font-display mt-3 text-lg font-semibold">
+              {t(locale, "community.scholarship.why_card3_title")}
+            </h3>
+            <p class="text-foam/70 mt-2 text-sm leading-relaxed">
+              {t(locale, "community.scholarship.why_card3_body")}
+            </p>
+          </div>
+          <div class="border-foam/10 rounded-lg border p-5">
+            <Ship class="text-teal h-6 w-6" />
+            <h3 class="font-display mt-3 text-lg font-semibold">
+              {t(locale, "community.scholarship.why_card4_title")}
+            </h3>
+            <p class="text-foam/70 mt-2 text-sm leading-relaxed">
+              {t(locale, "community.scholarship.why_card4_body")}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-navy text-foam">
-    <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-20 md:grid-cols-2 md:items-center">
-      <div class="space-y-4 md:order-2" data-reveal>
+  <!-- Section 3 — A year in the yard -->
+  <section class="bg-deep text-foam">
+    <div class="mx-auto max-w-[1200px] px-6 py-24">
+      <div class="max-w-[640px]" data-reveal>
         <h2 class="font-display text-3xl font-semibold sm:text-4xl">
-          {t(locale, "community.harbor_title")}
+          {t(locale, "community.scholarship.year_title")}
         </h2>
-        <p class="text-foam/80">{t(locale, "community.harbor_p1")}</p>
-        <p class="text-foam/80">{t(locale, "community.harbor_p2")}</p>
+        <p class="text-foam/75 mt-3">
+          {t(locale, "community.scholarship.year_subtitle")}
+        </p>
       </div>
-      <div class="overflow-hidden rounded-lg md:order-1" data-reveal>
+
+      <ol class="mt-14 grid gap-10 md:grid-cols-4 md:gap-6">
+        {
+          phases.map((phase, i) => (
+            <li class="relative flex flex-col" data-reveal>
+              <div class="aspect-[4/3] overflow-hidden rounded-lg">
+                <img
+                  src={phase.img}
+                  alt={t(locale, phase.titleKey)}
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div class="font-display text-teal mt-5 text-2xl font-bold">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <h3 class="font-display mt-1 text-xl font-semibold">
+                {t(locale, phase.titleKey)}
+              </h3>
+              <p class="text-teal/90 mt-1 text-xs font-semibold tracking-wider uppercase">
+                {t(locale, phase.monthsKey)}
+              </p>
+              <p class="text-foam/75 mt-3 text-sm leading-relaxed">
+                {t(locale, phase.bodyKey)}
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Section 4 — How to apply -->
+  <section class="bg-sand">
+    <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-24 md:grid-cols-2 md:items-center">
+      <div data-reveal>
+        <h2 class="font-display text-navy text-3xl font-semibold sm:text-4xl">
+          {t(locale, "community.scholarship.apply_title")}
+        </h2>
+        <p class="text-navy/80 mt-4 max-w-[520px]">
+          {t(locale, "community.scholarship.apply_body")}
+        </p>
+
+        <p class="text-navy mt-8 text-sm font-semibold tracking-wider uppercase">
+          {t(locale, "community.scholarship.eligibility_title")}
+        </p>
+        <ul class="mt-4 space-y-3">
+          {
+            eligibility.map((key) => (
+              <li class="flex items-start gap-3">
+                <span class="bg-teal text-foam mt-0.5 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full">
+                  <Check class="h-3 w-3" />
+                </span>
+                <span class="text-navy/85">{t(locale, key)}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="overflow-hidden rounded-lg" data-reveal>
         <img
-          src="/images/hero-home.webp"
-          alt="Λιμάνι Σκάλας και ναυπηγείο"
-          class="h-full w-full object-cover"
+          src="/images/community/apply.jpg"
+          alt="Παραδοσιακό λιμάνι Δωδεκανήσου — Σύμη"
+          class="aspect-[4/5] h-full w-full object-cover"
           loading="lazy"
         />
+      </div>
+    </div>
+
+    <div class="bg-rust text-foam">
+      <div
+        class="mx-auto flex max-w-[1200px] flex-col items-start gap-6 px-6 py-12 md:flex-row md:items-center md:justify-between"
+      >
+        <p class="font-display max-w-2xl text-2xl font-semibold sm:text-3xl" data-reveal>
+          {t(locale, "community.scholarship.deadline")}
+        </p>
+        <a
+          href={`${localizedPath(locale, "/contact")}?subject=Scholarship%202026`}
+          class="bg-foam text-navy hover:bg-navy hover:text-foam rounded-lg px-6 py-3 text-sm font-semibold transition"
+          data-reveal
+        >
+          {t(locale, "community.scholarship.cta")}
+        </a>
       </div>
     </div>
   </section>

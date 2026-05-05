@@ -14,21 +14,37 @@ const locale = "en" as const;
 >
   <Header slot="header" locale={locale} />
 
-  <section class="bg-navy text-foam">
+  <section class="bg-navy text-foam relative overflow-hidden">
+    <div class="from-navy via-deep to-navy pointer-events-none absolute inset-0 bg-gradient-to-br opacity-90"></div>
     <div
-      class="mx-auto flex min-h-[60vh] max-w-[1200px] flex-col items-start justify-center px-6 py-24"
+      class="relative mx-auto flex min-h-[70vh] max-w-[1200px] flex-col items-start justify-center px-6 py-24"
     >
-      <p class="font-display text-teal text-[10rem] leading-none font-semibold">404</p>
-      <h1 class="font-display mt-4 text-4xl font-semibold sm:text-5xl">
+      <p class="text-teal text-xs font-semibold tracking-[0.22em] uppercase" data-reveal>
+        {t(locale, "notfound.eyebrow")}
+      </p>
+      <p class="font-display text-teal mt-2 text-[10rem] leading-none font-semibold" data-reveal>
+        404
+      </p>
+      <h1 class="font-display mt-2 text-4xl font-semibold sm:text-5xl" data-reveal>
         {t(locale, "notfound.title")}
       </h1>
-      <p class="text-foam/80 mt-3 max-w-xl">{t(locale, "notfound.subtitle")}</p>
-      <a
-        href={localizedPath(locale, "/")}
-        class="bg-teal text-foam hover:bg-foam hover:text-navy mt-8 rounded-lg px-6 py-3 text-sm font-semibold transition"
-      >
-        {t(locale, "notfound.cta")}
-      </a>
+      <p class="text-foam/80 mt-3 max-w-xl" data-reveal>
+        {t(locale, "notfound.subtitle")}
+      </p>
+      <div class="mt-10 flex flex-wrap gap-3" data-reveal>
+        <a
+          href={localizedPath(locale, "/")}
+          class="bg-teal text-foam hover:bg-foam hover:text-navy rounded-lg px-6 py-3 text-sm font-semibold transition"
+        >
+          {t(locale, "notfound.cta")}
+        </a>
+        <a
+          href={localizedPath(locale, "/services")}
+          class="border-foam/40 text-foam hover:bg-foam hover:text-navy rounded-lg border px-6 py-3 text-sm font-semibold transition"
+        >
+          {t(locale, "notfound.cta_alt")}
+        </a>
+      </div>
     </div>
   </section>
 

@@ -3,18 +3,42 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import PageHero from "../../components/PageHero.astro";
-import ServicesGrid from "../../components/ServicesGrid.astro";
-import StatsCompact from "../../components/StatsCompact.astro";
 import BookingForm from "../../components/BookingForm.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import { services } from "../../data/services";
 import { t } from "../../i18n/utils";
+import { Search, FileText, Wrench, ShipWheel } from "lucide-astro";
 
 const locale = "en" as const;
+
+const flow = [
+  {
+    Icon: Search,
+    titleKey: "services.process_step1_title",
+    bodyKey: "services.process_step1_body",
+  },
+  {
+    Icon: FileText,
+    titleKey: "services.process_step2_title",
+    bodyKey: "services.process_step2_body",
+  },
+  {
+    Icon: Wrench,
+    titleKey: "services.process_step3_title",
+    bodyKey: "services.process_step3_body",
+  },
+  {
+    Icon: ShipWheel,
+    titleKey: "services.process_step4_title",
+    bodyKey: "services.process_step4_body",
+  },
+] as const;
 ---
 
 <BaseLayout
   locale={locale}
   title="Services — Triton Marine"
-  description="All marine services offered by Triton Marine."
+  description="Haul-out, parking and winter storage, repairs, and custom construction — all run by the same crew on the harbor of Patmos."
 >
   <Header slot="header" locale={locale} />
 
@@ -25,24 +49,97 @@ const locale = "en" as const;
     crumbs={[{ labelKey: "breadcrumb.home", href: "/" }, { labelKey: "breadcrumb.services" }]}
   />
 
-  <ServicesGrid locale={locale} withHeading={false} />
+  <!-- Section 1 — Editorial intro -->
+  <section class="bg-foam">
+    <div class="mx-auto max-w-[760px] px-6 py-24 text-center">
+      <p class="text-teal text-xs font-semibold tracking-[0.22em] uppercase" data-reveal>
+        {t(locale, "services.intro_eyebrow")}
+      </p>
+      <h2
+        class="font-display text-navy mt-6 text-4xl leading-tight font-semibold sm:text-5xl"
+        data-reveal
+      >
+        {t(locale, "services.intro_title")}
+      </h2>
+      <p class="text-navy/80 mx-auto mt-7 max-w-[620px] text-lg leading-relaxed" data-reveal>
+        {t(locale, "services.intro_p1")}
+      </p>
+      <p class="text-navy/70 mx-auto mt-4 max-w-[620px]" data-reveal>
+        {t(locale, "services.intro_p2")}
+      </p>
+    </div>
+  </section>
 
-  <StatsCompact locale={locale} />
+  <!-- Section 2 — Services list on navy -->
+  <section class="bg-navy text-foam">
+    <div class="mx-auto max-w-[1200px] px-6 py-24">
+      <div class="max-w-[640px]" data-reveal>
+        <p class="text-teal text-xs font-semibold tracking-[0.22em] uppercase">
+          {t(locale, "services.list_eyebrow")}
+        </p>
+        <h2 class="font-display mt-4 text-3xl font-semibold sm:text-4xl">
+          {t(locale, "services.heading")}
+        </h2>
+        <p class="text-foam/80 mt-4">{t(locale, "services.list_lead")}</p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2" data-services-grid>
+        {services.map((service) => <ServiceCard service={service} locale={locale} />)}
+      </div>
+    </div>
+  </section>
 
+  <!-- Section 3 — Process timeline on deep -->
   <section class="bg-deep text-foam">
-    <div class="mx-auto grid max-w-[1200px] gap-10 px-6 py-20 md:grid-cols-[5fr_7fr] md:gap-16">
+    <div class="mx-auto max-w-[1200px] px-6 py-24">
+      <div class="max-w-[640px]" data-reveal>
+        <p class="text-teal text-xs font-semibold tracking-[0.22em] uppercase">
+          {t(locale, "services.process_eyebrow")}
+        </p>
+        <h2 class="font-display mt-4 text-3xl font-semibold sm:text-4xl">
+          {t(locale, "services.process_title")}
+        </h2>
+      </div>
+      <ol class="mt-14 grid gap-10 md:grid-cols-4 md:gap-6">
+        {
+          flow.map((step, i) => {
+            const Icon = step.Icon;
+            return (
+              <li class="flex flex-col" data-reveal>
+                <div class="bg-teal/15 text-teal flex h-12 w-12 items-center justify-center rounded-lg">
+                  <Icon class="h-6 w-6" />
+                </div>
+                <span class="font-display text-teal/70 mt-5 text-2xl font-bold">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 class="font-display mt-1 text-xl font-semibold">
+                  {t(locale, step.titleKey)}
+                </h3>
+                <p class="text-foam/75 mt-3 text-sm leading-relaxed">
+                  {t(locale, step.bodyKey)}
+                </p>
+              </li>
+            );
+          })
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Section 4 — Booking form on sand -->
+  <section class="bg-sand">
+    <div class="mx-auto grid max-w-[1200px] gap-10 px-6 py-24 md:grid-cols-[5fr_7fr] md:gap-16">
       <div data-reveal>
-        <p class="text-teal text-xs font-semibold tracking-[0.2em] uppercase">
+        <p class="text-teal text-xs font-semibold tracking-[0.22em] uppercase">
           {t(locale, "booking.eyebrow")}
         </p>
-        <h2 class="font-display mt-4 text-4xl font-semibold sm:text-5xl">
+        <h2 class="font-display text-navy mt-4 text-4xl font-semibold sm:text-5xl">
           {t(locale, "booking.title")}
         </h2>
-        <p class="text-foam/80 mt-4">
+        <p class="text-navy/80 mt-4 max-w-[460px]">
           {t(locale, "booking.subtitle")}
         </p>
       </div>
-      <div class="bg-foam rounded-lg p-8" data-reveal>
+      <div class="bg-foam border-navy/10 rounded-lg border p-8 shadow-sm" data-reveal>
         <BookingForm locale={locale} />
       </div>
     </div>

@@ -2,42 +2,72 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import PageHero from "../../components/PageHero.astro";
 import CtaSection from "../../components/CtaSection.astro";
-import StatsBar from "../../components/StatsBar.astro";
 import { t } from "../../i18n/utils";
+import {
+  Hammer,
+  Wrench,
+  Anchor,
+  ShieldCheck,
+  CircleDollarSign,
+  FileText,
+  BadgeCheck,
+} from "lucide-astro";
 
 const locale = "gr" as const;
+
+const seasons = [
+  {
+    titleKey: "about.season1_title",
+    monthsKey: "about.season1_months",
+    bodyKey: "about.season1_body",
+  },
+  {
+    titleKey: "about.season2_title",
+    monthsKey: "about.season2_months",
+    bodyKey: "about.season2_body",
+  },
+  {
+    titleKey: "about.season3_title",
+    monthsKey: "about.season3_months",
+    bodyKey: "about.season3_body",
+  },
+  {
+    titleKey: "about.season4_title",
+    monthsKey: "about.season4_months",
+    bodyKey: "about.season4_body",
+  },
+] as const;
 ---
 
 <BaseLayout
   locale={locale}
   title="Σχετικά — Triton Marine"
-  description="Μάθετε για την Triton Marine — την ιστορία μας, το πλήρωμά μας, και την ακτή που εξυπηρετούμε."
+  description="Μια μικρή, έμπειρη ομάδα που τρέχει ένα ναυπηγείο εν λειτουργία στο λιμάνι της Πάτμου — δώδεκα άνθρωποι, τρεις ειδικότητες, ένα ναυπηγείο."
 >
   <Header slot="header" locale={locale} />
 
-  <section class="bg-navy text-foam">
-    <div class="mx-auto max-w-[1200px] px-6 py-24">
-      <p class="text-teal text-xs font-semibold tracking-[0.2em] uppercase" data-reveal>
-        {t(locale, "about.heading")}
-      </p>
-      <h1 class="font-display mt-4 max-w-3xl text-5xl font-semibold sm:text-6xl" data-reveal>
-        {t(locale, "about.hero_title")}
-      </h1>
-    </div>
-  </section>
+  <PageHero
+    locale={locale}
+    title={t(locale, "about.hero_title")}
+    backgroundImage="/images/about.webp"
+    crumbs={[{ labelKey: "breadcrumb.home", href: "/" }, { labelKey: "nav.about" }]}
+  />
 
+  <!-- Section 1 — Story -->
   <section class="bg-foam">
-    <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-20 md:grid-cols-2">
-      <div class="overflow-hidden rounded-lg" data-reveal>
-        <img
-          src="/images/about.webp"
-          alt="Πλήρωμα Triton Marine"
-          class="h-full w-full object-cover"
-          loading="lazy"
-        />
-      </div>
-      <div class="text-navy/80 space-y-4" data-reveal>
+    <div class="mx-auto max-w-[760px] px-6 py-24 text-center">
+      <p class="text-teal text-xs font-semibold tracking-[0.22em] uppercase" data-reveal>
+        {t(locale, "about.eyebrow")}
+      </p>
+      <h2
+        class="font-display text-navy mt-6 text-4xl leading-tight font-semibold sm:text-5xl"
+        data-reveal
+      >
+        {t(locale, "about.intro_lead")}
+      </h2>
+      <div class="text-navy/80 mx-auto mt-8 space-y-4 text-left text-lg leading-relaxed" data-reveal>
         <p>{t(locale, "about.p1")}</p>
         <p>{t(locale, "about.p2")}</p>
         <p>{t(locale, "about.p3")}</p>
@@ -45,7 +75,143 @@ const locale = "gr" as const;
     </div>
   </section>
 
-  <StatsBar locale={locale} />
+  <!-- Section 2 — Crew -->
+  <section class="bg-navy text-foam">
+    <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-24 md:grid-cols-12 md:items-center">
+      <div class="overflow-hidden rounded-lg md:col-span-5" data-reveal>
+        <img
+          src="/images/general-repair.webp"
+          alt="Η ομάδα της Triton Marine"
+          class="aspect-[4/5] h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div class="md:col-span-7" data-reveal>
+        <h2 class="font-display text-3xl font-semibold sm:text-4xl">
+          {t(locale, "about.crew_title")}
+        </h2>
+        <p class="text-foam/80 mt-4 max-w-[560px]">{t(locale, "about.crew_lead")}</p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2">
+          <div class="border-foam/10 rounded-lg border p-5">
+            <Hammer class="text-teal h-6 w-6" />
+            <h3 class="font-display mt-3 text-lg font-semibold">
+              {t(locale, "about.crew_role1_title")}
+            </h3>
+            <p class="text-foam/70 mt-2 text-sm leading-relaxed">
+              {t(locale, "about.crew_role1_body")}
+            </p>
+          </div>
+          <div class="border-foam/10 rounded-lg border p-5">
+            <Wrench class="text-teal h-6 w-6" />
+            <h3 class="font-display mt-3 text-lg font-semibold">
+              {t(locale, "about.crew_role2_title")}
+            </h3>
+            <p class="text-foam/70 mt-2 text-sm leading-relaxed">
+              {t(locale, "about.crew_role2_body")}
+            </p>
+          </div>
+          <div class="border-foam/10 rounded-lg border p-5">
+            <ShieldCheck class="text-teal h-6 w-6" />
+            <h3 class="font-display mt-3 text-lg font-semibold">
+              {t(locale, "about.crew_role3_title")}
+            </h3>
+            <p class="text-foam/70 mt-2 text-sm leading-relaxed">
+              {t(locale, "about.crew_role3_body")}
+            </p>
+          </div>
+          <div class="border-foam/10 rounded-lg border p-5">
+            <Anchor class="text-teal h-6 w-6" />
+            <h3 class="font-display mt-3 text-lg font-semibold">
+              {t(locale, "about.crew_role4_title")}
+            </h3>
+            <p class="text-foam/70 mt-2 text-sm leading-relaxed">
+              {t(locale, "about.crew_role4_body")}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 — Seasons -->
+  <section class="bg-deep text-foam">
+    <div class="mx-auto max-w-[1200px] px-6 py-24">
+      <div class="max-w-[640px]" data-reveal>
+        <h2 class="font-display text-3xl font-semibold sm:text-4xl">
+          {t(locale, "about.seasons_title")}
+        </h2>
+        <p class="text-foam/75 mt-3">{t(locale, "about.seasons_subtitle")}</p>
+      </div>
+      <ol class="mt-14 grid gap-10 md:grid-cols-4 md:gap-6">
+        {
+          seasons.map((s, i) => (
+            <li class="border-foam/10 relative flex flex-col rounded-lg border p-6" data-reveal>
+              <span class="font-display text-teal text-2xl font-bold">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 class="font-display mt-2 text-xl font-semibold">{t(locale, s.titleKey)}</h3>
+              <p class="text-teal/90 mt-1 text-xs font-semibold tracking-wider uppercase">
+                {t(locale, s.monthsKey)}
+              </p>
+              <p class="text-foam/75 mt-3 text-sm leading-relaxed">{t(locale, s.bodyKey)}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Section 4 — Values -->
+  <section class="bg-sand">
+    <div class="mx-auto grid max-w-[1200px] gap-12 px-6 py-24 md:grid-cols-2 md:items-center">
+      <div data-reveal>
+        <p class="text-teal text-xs font-semibold tracking-[0.22em] uppercase">
+          {t(locale, "about.values_eyebrow")}
+        </p>
+        <h2 class="font-display text-navy mt-4 text-3xl font-semibold sm:text-4xl">
+          {t(locale, "about.values_title")}
+        </h2>
+        <p class="text-navy/80 mt-4 max-w-[520px]">{t(locale, "about.values_body")}</p>
+      </div>
+      <ul class="space-y-4" data-reveal>
+        <li class="bg-foam border-navy/10 flex items-start gap-4 rounded-lg border p-5">
+          <CircleDollarSign class="text-teal mt-0.5 h-6 w-6 flex-none" />
+          <div>
+            <h3 class="font-display text-navy text-lg font-semibold">
+              {t(locale, "about.values_1_title")}
+            </h3>
+            <p class="text-navy/75 mt-1 text-sm leading-relaxed">
+              {t(locale, "about.values_1_body")}
+            </p>
+          </div>
+        </li>
+        <li class="bg-foam border-navy/10 flex items-start gap-4 rounded-lg border p-5">
+          <FileText class="text-teal mt-0.5 h-6 w-6 flex-none" />
+          <div>
+            <h3 class="font-display text-navy text-lg font-semibold">
+              {t(locale, "about.values_2_title")}
+            </h3>
+            <p class="text-navy/75 mt-1 text-sm leading-relaxed">
+              {t(locale, "about.values_2_body")}
+            </p>
+          </div>
+        </li>
+        <li class="bg-foam border-navy/10 flex items-start gap-4 rounded-lg border p-5">
+          <BadgeCheck class="text-teal mt-0.5 h-6 w-6 flex-none" />
+          <div>
+            <h3 class="font-display text-navy text-lg font-semibold">
+              {t(locale, "about.values_3_title")}
+            </h3>
+            <p class="text-navy/75 mt-1 text-sm leading-relaxed">
+              {t(locale, "about.values_3_body")}
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </section>
+
   <CtaSection locale={locale} />
 
   <Footer slot="footer" locale={locale} />
