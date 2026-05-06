@@ -31,7 +31,7 @@ export const services: Service[] = [
   {
     slug: "haul-out-launch",
     icon: "arrow-up-down",
-    heroImage: "/images/engine-service.webp",
+    heroImage: "/images/services/haul-out-hero.jpg",
     name: {
       en: "Haul-out & launch",
       gr: "Ανέλκυση – Καθέλκυση σκαφών",
@@ -388,7 +388,7 @@ export const services: Service[] = [
   {
     slug: "construction",
     icon: "hammer",
-    heroImage: "/images/hull-cleaning.webp",
+    heroImage: "/images/services/construction-hero.jpg",
     name: {
       en: "Construction",
       gr: "Κατασκευές",

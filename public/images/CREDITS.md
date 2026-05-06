@@ -22,7 +22,13 @@ All images sourced from Unsplash (https://unsplash.com) under the Unsplash Licen
 
 ## About — crew
 
-- about/crew.jpg — Rushi Shah (@rushicumar3433), https://unsplash.com/photos/mo-hUg6vew8
+- about/crew.jpg — Stephan Hinni, https://unsplash.com/photos/KFjpzIkEtrY
+
+## Services hero
+
+- services-hero.jpg — André Eusébio (@andreeusebio), https://unsplash.com/photos/zLHCk3g0COo
+- services/haul-out-hero.jpg — Frank Eiffert (@feiffert), https://unsplash.com/photos/REq2EIJ8ZTM
+- services/construction-hero.jpg — Sony Adam, https://unsplash.com/photos/unnUlDZ1wkk
 
 ## Service galleries
 
