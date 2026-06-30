@@ -1,4 +1,4 @@
-# Triton Marine
+# Tritonas Marine Patmos
 
 Bilingual (EN/GR) marine services site. Built with Astro, Tailwind, and GSAP.
 
